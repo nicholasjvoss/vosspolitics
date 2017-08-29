@@ -1,10 +1,10 @@
-import { autorun, observable } from 'mobx';
+import {observable } from 'mobx';
 
 class TodoStore {
   @observable todos = ['buy milk', 'buy eggs'];
   @observable filter = '';
 }
 
-let store = window.store = new TodoStore;
+let store = window.store = new TodoStore();
 
 export default store;
