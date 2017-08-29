@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import store from './store';
 
 //components
-import List from './list';
+import List from './pages/ui-homepage/HomePage';
 
 //styles
 import './App.scss';
