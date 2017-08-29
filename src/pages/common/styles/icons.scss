@@ -1,0 +1,255 @@
+// =============================================
+// Icons - Icon fonts imported from IcoMoon
+// https://icomoon.io/app
+// =============================================
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?sy8q4l');
+  src:  url('fonts/icomoon.eot?sy8q4l#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?sy8q4l') format('truetype'),
+    url('fonts/icomoon.woff?sy8q4l') format('woff'),
+    url('fonts/icomoon.svg?sy8q4l#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// ===== Icon Layout Styles =====
+
+.app-icons {
+  display:flex;
+  flex-wrap:wrap;
+  padding:2rem;
+
+  .icon-info {
+    cursor:default;
+    display:flex;
+    flex:0 0 auto;
+    margin-bottom:1rem;
+    min-height:60px;
+    padding:0 1rem;
+    transition:background-color .3s, color .3s;
+    width:25%;
+
+    .icon-preview {
+      font-size:3rem;
+      margin:auto 0;
+    }
+
+    .icon-label {
+      color:$dark-gry-5;
+      font-size:1.3rem;
+      margin:auto 0;
+      padding:0 1rem;
+    }
+
+    &:hover {
+      background-color:darken($dark-gry-2, 5%);
+
+      .icon-label {
+        color:lighten($light-gry-3, 5%);
+      }
+    }
+  }
+}
+
+// ===== Icon Font Styles =====
+
+[class^="p-icon-"], [class*=" p-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.p-icon-plus:before {
+  content: "\f067";
+}
+.p-icon-minus:before {
+  content: "\f068";
+}
+.p-icon-search:before {
+  content: "\f002";
+}
+.p-icon-heart:before {
+  content: "\f004";
+}
+.p-icon-star:before {
+  content: "\f005";
+}
+.p-icon-star-o:before {
+  content: "\f006";
+}
+.p-icon-film:before {
+  content: "\f008";
+}
+.p-icon-th:before {
+  content: "\f00a";
+}
+.p-icon-check:before {
+  content: "\f00c";
+}
+.p-icon-close:before {
+  content: "\f00d";
+}
+.p-icon-remove:before {
+  content: "\f00d";
+}
+.p-icon-times:before {
+  content: "\f00d";
+}
+.p-icon-search-plus:before {
+  content: "\f00e";
+}
+.p-icon-search-minus:before {
+  content: "\f010";
+}
+.p-icon-cog:before {
+  content: "\f013";
+}
+.p-icon-gear:before {
+  content: "\f013";
+}
+.p-icon-print:before {
+  content: "\f02f";
+}
+.p-icon-image:before {
+  content: "\f03e";
+}
+.p-icon-photo:before {
+  content: "\f03e";
+}
+.p-icon-picture-o:before {
+  content: "\f03e";
+}
+.p-icon-pencil:before {
+  content: "\f040";
+}
+.p-icon-map-marker:before {
+  content: "\f041";
+}
+.p-icon-edit:before {
+  content: "\f044";
+}
+.p-icon-pencil-square-o:before {
+  content: "\f044";
+}
+.p-icon-check-square-o:before {
+  content: "\f046";
+}
+.p-icon-chevron-left:before {
+  content: "\f053";
+}
+.p-icon-chevron-right:before {
+  content: "\f054";
+}
+.p-icon-crosshairs:before {
+  content: "\f05b";
+}
+.p-icon-arrow-left:before {
+  content: "\f060";
+}
+.p-icon-arrow-right:before {
+  content: "\f061";
+}
+.p-icon-arrow-up:before {
+  content: "\f062";
+}
+.p-icon-arrow-down:before {
+  content: "\f063";
+}
+.p-icon-chevron-up:before {
+  content: "\f077";
+}
+.p-icon-chevron-down:before {
+  content: "\f078";
+}
+.p-icon-thumbs-o-up:before {
+  content: "\f087";
+}
+.p-icon-thumbs-o-down:before {
+  content: "\f088";
+}
+.p-icon-heart-o:before {
+  content: "\f08a";
+}
+.p-icon-tasks:before {
+  content: "\f0ae";
+}
+.p-icon-filter:before {
+  content: "\f0b0";
+}
+.p-icon-bars:before {
+  content: "\f0c9";
+}
+.p-icon-navicon:before {
+  content: "\f0c9";
+}
+.p-icon-reorder:before {
+  content: "\f0c9";
+}
+.p-icon-caret-down:before {
+  content: "\f0d7";
+}
+.p-icon-caret-up:before {
+  content: "\f0d8";
+}
+.p-icon-envelope:before {
+  content: "\f0e0";
+}
+.p-icon-dashboard:before {
+  content: "\f0e4";
+}
+.p-icon-tachometer:before {
+  content: "\f0e4";
+}
+.p-icon-bell:before {
+  content: "\f0f3";
+}
+.p-icon-star-half-empty:before {
+  content: "\f123";
+}
+.p-icon-star-half-full:before {
+  content: "\f123";
+}
+.p-icon-star-half-o:before {
+  content: "\f123";
+}
+.p-icon-thumbs-up:before {
+  content: "\f164";
+}
+.p-icon-thumbs-down:before {
+  content: "\f165";
+}
+.p-icon-newspaper-o:before {
+  content: "\f1ea";
+}
+.p-icon-bell-slash:before {
+  content: "\f1f6";
+}
+.p-icon-bell-slash-o:before {
+  content: "\f1f7";
+}
+.p-icon-area-chart:before {
+  content: "\f1fe";
+}
+.p-icon-pie-chart:before {
+  content: "\f200";
+}
+.p-icon-line-chart:before {
+  content: "\f201";
+}
+.p-icon-toggle-on:before {
+  content: "\f205";
+}
+.p-icon-user-circle-o:before {
+  content: "\f2be";
+}
