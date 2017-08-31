@@ -4,14 +4,14 @@
 // =============================================
 
 @font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?sy8q4l');
-  src:  url('fonts/icomoon.eot?sy8q4l#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?sy8q4l') format('truetype'),
-    url('fonts/icomoon.woff?sy8q4l') format('woff'),
-    url('fonts/icomoon.svg?sy8q4l#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
+  font-family:'icomoon';
+  src:url('fonts/icomoon.eot?sy8q4l');
+  src:url('fonts/icomoon.eot?sy8q4l#iefix') format('embedded-opentype'),
+      url('fonts/icomoon.ttf?sy8q4l') format('truetype'),
+      url('fonts/icomoon.woff?sy8q4l') format('woff'),
+      url('fonts/icomoon.svg?sy8q4l#icomoon') format('svg');
+  font-weight:normal;
+  font-style:normal;
 }
 
 // ===== Icon Layout Styles =====
@@ -19,7 +19,6 @@
 .app-icons {
   display:flex;
   flex-wrap:wrap;
-  padding:2rem;
 
   .icon-info {
     cursor:default;
@@ -252,4 +251,14 @@
 }
 .p-icon-user-circle-o:before {
   content: "\f2be";
+}
+
+// ===== demo only =====
+
+.component-library {
+  .icon-info:hover {
+    .icon-label {
+      color:$grn-1;
+    }
+  }
 }

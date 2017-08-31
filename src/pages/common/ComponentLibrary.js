@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import './index.scss';
-import './styles/library-ui.scss';
-// import Icons from './Icons';
+
+// ===== Components =====
+import Icons from './components/Icons';
 
 export default class ComponentLibrary extends Component {
     constructor(props) {
@@ -15,8 +16,8 @@ export default class ComponentLibrary extends Component {
     render() {
       const { activeTab } = this.state;
       const libraryComponents = [
-          { 'name': 'Icons', 'component': <div>First component</div> },
-          { 'name': 'Icons2', 'component': <div>Second component</div> },
+          { 'name': 'Icons', 'component': <Icons /> },
+          { 'name': 'Icons2', 'component': <div>another component</div> },
       ];
 
         return (
