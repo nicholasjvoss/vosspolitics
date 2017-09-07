@@ -13,16 +13,47 @@
 
 // ===== Accordion =====
 
+.component-library {
+  .component-library-header {
+    align-items:center;
+      background-color:$grn-1;
+      display:none;
+      min-height:60px;
+      padding:0 2rem;
+
+      @media #{$phone} {
+        display:flex;
+      }
+
+      .menu-toggle {
+        background-color:transparent;
+        border:0;
+        border-radius:4px;
+        color:#ddd;
+        cursor:pointer;
+        font-size:2rem;
+        height:40px;
+        min-width:40px;
+        transition:background-color .3s;
+
+        &.mod-active {
+          background-color:darken($grn-1, 5%);
+        }
+      }
+  }
+}
+
 .component-library .cl-accordion {
   display:flex;
   flex:1 1 auto;
 
   .cl-accordion-tabs {
+    background-color:#151515;
     flex:0 0 auto;
     list-style-type:none;
     margin:0;
     min-width:200px;
-    padding:0;
+    padding:5px 0 0 0;
 
     .cl-accordion-tabs__tab {
       background:transparent;
@@ -43,10 +74,28 @@
       }
 
       &.mod-selected {
-        border-left:15px solid #0ca773;
+        border-left:15px solid $grn-1;
         transition:border-width .3s .1s, border-color .3s;
         opacity:1;
       }
+    }
+  }
+
+  .cl-accordion-tabs {
+    @media #{$phone} {
+      bottom:0;
+      left:0;
+      position:absolute;
+      transform:translateX(-100%);
+      transition:transform .3s cubic-bezier(0.19, 1, 0.22, 1);
+      top:60px;
+      width:100%;
+    }
+  }
+
+  .cl-accordion-tabs.mod-active {
+    @media #{$phone} {
+      transform:translateX(0);
     }
   }
 

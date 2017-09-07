@@ -8,6 +8,9 @@
 
 html, body, #root {
   height:100%;
+  margin:0;
+  overflow:hidden;
+  padding:0;
   width:100%;
 }
 
@@ -19,3 +22,9 @@ body {
 button, img {
   outline:0;
 }
+
+// ===== Responsive Breakpoints =====
+
+$phone: "screen and (min-width:0) and (max-width:649px)";
+$tablet: "screen and (min-width:650px) and (max-width:959px)";
+$desktop: "screen and (min-width:960px)";

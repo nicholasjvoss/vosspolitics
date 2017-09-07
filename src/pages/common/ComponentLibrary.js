@@ -10,27 +10,42 @@ export default class ComponentLibrary extends Component {
         super(props);
         this.state = {
             activeTab: 0,
+            menuIsActive: false,
         }
     }
 
     render() {
-      const { activeTab } = this.state;
+      const { activeTab, menuIsActive } = this.state;
       const libraryComponents = [
+          { 'name': 'Buttons', 'component': <div>Buttons go here...</div> },
           { 'name': 'Icons', 'component': <Icons /> },
-          { 'name': 'Icons2', 'component': <div>another component</div> },
       ];
+      const menuActiveCls = menuIsActive ? 'mod-active' : '';
 
-        return (
-          <div className="component-library">
-            <div className="cl-accordion">
-              <ul className="cl-accordion-tabs">{ libraryComponents.map(this.renderTabs.bind(this)) }</ul>
+      return (
+        <div className="component-library">
+          <div className="component-library-header">
+            <button
+              className={ cx('menu-toggle', 'p-icon-navicon', menuActiveCls) }
+              onClick={ this.handleToggleDidClick.bind(this) }
+            />
+          </div>
 
-              <div className="cl-accordion-content">
+          <div className="cl-accordion">
+            <ul className={ cx('cl-accordion-tabs', menuActiveCls) }>{ libraryComponents.map(this.renderTabs.bind(this)) }</ul>
+
+            <div className="cl-accordion-content">
+              <h1>{ libraryComponents[activeTab].name }</h1>
                 { libraryComponents[activeTab].component }
-              </div>
             </div>
           </div>
-        )
+        </div>
+      )
+    }
+
+    handleToggleDidClick() {
+      const { menuIsActive } = this.state;
+      this.setState({ menuIsActive: !menuIsActive });
     }
 
     renderTabs(tab, idx, self) {
@@ -52,7 +67,11 @@ export default class ComponentLibrary extends Component {
     }
 
     handleTabDidClick = (index)=> {
-      console.log('clicked tab: ', index)
-      this.setState({ activeTab: index });
+      const { menuIsActive } = this.state;
+
+      this.setState({
+        activeTab: index,
+        menuIsActive: !menuIsActive
+      });
     }
 }
