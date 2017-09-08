@@ -15,27 +15,27 @@ export default class ButtonPage extends Component {
       <section className="library-page__buttons">
         <div className="demo-component">
           <h2 className="demo-component__title">Primary</h2>
-          <Button type={ 1 } wrapperCls="wrapperCls" >Primary</Button>
+          <Button buttonType={ 1 } wrapperCls="wrapperCls" >Primary</Button>
         </div>
 
         <div className="demo-component">
           <h2 className="demo-component__title">Secondary</h2>
-          <Button type={ 1 }>Secondary</Button>
+          <Button buttonType={ 2 }>Secondary</Button>
         </div>
-
+        
         <div className="demo-component">
           <h2 className="demo-component__title">Tertiary</h2>
-          <Button type={ 1 }>Tertiary</Button>
+          <Button buttonType={ 3 }>Tertiary</Button>
         </div>
 
         <div className="demo-component">
           <h2 className="demo-component__title">Transparent</h2>
-          <Button type={ 1 }>Transparent</Button>
+          <Button buttonType={ 4 }>Transparent</Button>
         </div>
 
         <div className="demo-component">
           <h2 className="demo-component__title">Error</h2>
-          <Button type={ 1 }>Error</Button>
+          <Button buttonType={ 5 }>Error</Button>
         </div>
 
         <div className="demo-component">

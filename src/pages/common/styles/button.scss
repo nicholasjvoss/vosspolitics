@@ -8,7 +8,43 @@
   border-style:solid;
   border-width:1px;
   cursor:pointer;
+  font-family:'Montserrat';
   min-height:40px;
   min-width:40px;
-  padding:5px;
+  padding:5px 1rem;
+  transition:
+    background-color .2s,
+    border-color .2s;
+
+  &.button-primary {
+    background-color:$grn-1;
+    border-color:transparent;
+    color:#fff;
+
+    &:hover {
+      background-color:darken($grn-1, 5%);
+    }
+  }
+
+  &.button-secondary {
+    border-color:$gry-4;
+  }
+
+  &.button-tertiary {
+    background-color:transparent;
+    border-color:$gry-4;
+  }
+
+  &.button-transparent {
+    background-color:transparent;
+
+    &:hover {
+      background-color:$wht-1;
+    }
+  }
+
+  &.button-error {
+    background-color:$red-1;
+    border-color:$red-2;
+  }
 }

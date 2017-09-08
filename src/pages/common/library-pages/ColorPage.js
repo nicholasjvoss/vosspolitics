@@ -21,6 +21,8 @@ export default class ButtonPage extends Component {
           <h2 className="demo-component__title">Grayscale</h2>
 
           <div className="color-sample wht-1"><span>#f7f0e9</span></div>
+          <div className="color-sample gry-4"><span>#c4bdb6</span></div>
+          <div className="color-sample gry-3"><span>#8c8b89</span></div>
           <div className="color-sample dark-gry-1"><span>#424242</span></div>
           <div className="color-sample dark-gry-2"><span>#242323</span></div>
         </div>
