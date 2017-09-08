@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Icons extends Component {
+export default class IconPage extends Component {
   render() {
     const iconsList = [  // collapse when not in use
       "p-icon-plus",
@@ -67,7 +67,7 @@ export default class Icons extends Component {
     ];
 
     return (
-      <section className="app-icons">
+      <section className="library-page__icons">
         { iconsList.map(this.renderIcons) }
       </section>
     )

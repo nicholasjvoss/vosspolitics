@@ -16,7 +16,7 @@
 
 // ===== Icon Layout Styles =====
 
-.app-icons {
+.library-page__icons {
   display:flex;
   flex-wrap:wrap;
 
@@ -44,17 +44,17 @@
     }
 
     .icon-label {
-      color:$dark-gry-5;
+      // color:$dark-gry-5;
       font-size:1.3rem;
       margin:auto 0;
       padding:0 1rem;
     }
 
     &:hover {
-      background-color:darken($dark-gry-2, 5%);
+      // background-color:darken($dark-gry-2, 5%);
 
       .icon-label {
-        color:lighten($light-gry-3, 5%);
+        // color:lighten($light-gry-3, 5%);
       }
     }
   }

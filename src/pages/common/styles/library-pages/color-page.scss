@@ -1,0 +1,54 @@
+// =============================================
+// ColorPage - Your source for global color variables
+// =============================================
+
+.library-page__color {
+  .color-sample {
+    display:flex;
+    justify-content:flex-end;
+    padding:2rem;
+    min-height:40px;
+    width:280px;
+
+    > span {
+      background-color:#fff;
+      opacity:0;
+      padding:5px 1rem;
+      text-align:center;
+      transform:opacity .3s;
+      width:100px;
+    }
+
+    &:hover > span {
+      opacity:1;
+    }
+
+    &.grn-1 {
+      background-color:$grn-1;
+    }
+
+    &.wht-1 {
+      background-color:$wht-1;
+    }
+
+    &.red-1 {
+      background-color:$red-1;
+    }
+
+    &.red-2 {
+      background-color:$red-2;
+    }
+
+    &.blue-1 {
+      background-color:$blue-1;
+    }
+
+    &.dark-gry-1 {
+      background-color:$dark-gry-1;
+    }
+
+    &.dark-gry-2 {
+      background-color:$dark-gry-2;
+    }
+  }
+}

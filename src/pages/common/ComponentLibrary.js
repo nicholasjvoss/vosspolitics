@@ -3,7 +3,9 @@ import cx from 'classnames';
 import './index.scss';
 
 // ===== Components =====
-import Icons from './components/Icons';
+import ButtonPage from './library-pages/ButtonPage';
+import ColorPage from './library-pages/ColorPage';
+import IconPage from './library-pages/IconPage';
 
 export default class ComponentLibrary extends Component {
     constructor(props) {
@@ -17,8 +19,9 @@ export default class ComponentLibrary extends Component {
     render() {
       const { activeTab, menuIsActive } = this.state;
       const libraryComponents = [
-          { 'name': 'Buttons', 'component': <div>Buttons go here...</div> },
-          { 'name': 'Icons', 'component': <Icons /> },
+          { 'name': 'Buttons', 'component': <ButtonPage /> },
+          { 'name': 'Colors', 'component': <ColorPage /> },
+          { 'name': 'Icons', 'component': <IconPage /> },
       ];
       const menuActiveCls = menuIsActive ? 'mod-active' : '';
 

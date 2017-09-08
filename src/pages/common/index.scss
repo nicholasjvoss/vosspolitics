@@ -2,6 +2,11 @@
 @import './styles/colors.scss';
 @import './styles/base.scss';
 @import './styles/typography.scss';
-@import './styles/library-ui.scss';
 
+// ===== Components =====
 @import './styles/icons.scss';
+@import './styles/button.scss';
+
+// ===== Demo Pages =====
+@import './styles/library-ui.scss';
+@import './styles/library-pages/color-page.scss';

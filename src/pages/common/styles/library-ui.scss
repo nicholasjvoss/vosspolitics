@@ -4,7 +4,7 @@
 // =============================================
 
 .component-library {
-  background-color:#151515;
+  // background-color:#151515;
   display:flex;
   flex-direction:column;
   flex:1 1 auto;
@@ -25,21 +25,36 @@
         display:flex;
       }
 
-      .menu-toggle {
-        background-color:transparent;
-        border:0;
-        border-radius:4px;
-        color:#ddd;
-        cursor:pointer;
-        font-size:2rem;
-        height:40px;
-        min-width:40px;
-        transition:background-color .3s;
+    .menu-toggle {
+      background-color:transparent;
+      border:0;
+      border-radius:4px;
+      color:#ddd;
+      cursor:pointer;
+      font-size:2rem;
+      height:40px;
+      min-width:40px;
+      transition:background-color .3s;
 
-        &.mod-active {
-          background-color:darken($grn-1, 5%);
-        }
+      &.mod-active {
+        background-color:darken($grn-1, 5%);
       }
+    }
+  }
+
+  .demo-component {
+    background-color:#fff;
+    border-radius:1rem;
+    box-shadow:0 1px 1px 0 darken($wht-1, 10%);
+    padding:2rem;
+    margin:0 1rem 2rem 0;
+
+    .demo-component__title {
+      color:$grn-1;
+      font-size:1.8rem;
+      font-weight:500;
+      margin-top:0;
+    }
   }
 }
 
@@ -48,7 +63,7 @@
   flex:1 1 auto;
 
   .cl-accordion-tabs {
-    background-color:#151515;
+    background-color:$dark-gry-2;
     flex:0 0 auto;
     list-style-type:none;
     margin:0;
@@ -59,9 +74,10 @@
       background:transparent;
       border:0;
       border-left:0 solid transparent;
-      color:#ddd;
+      color:#fff;
       cursor:pointer;
-      font-size:1.4rem;
+      font-size:1.6rem;
+      font-weight:600;
       min-height:40px;
       opacity:.6;
       padding:1rem 1.5rem;
@@ -85,9 +101,10 @@
     @media #{$phone} {
       bottom:0;
       left:0;
+      opacity:0;
       position:absolute;
       transform:translateX(-100%);
-      transition:transform .3s cubic-bezier(0.19, 1, 0.22, 1);
+      transition:opacity .3s, transform .3s cubic-bezier(0.19, 1, 0.22, 1);
       top:60px;
       width:100%;
     }
@@ -95,12 +112,13 @@
 
   .cl-accordion-tabs.mod-active {
     @media #{$phone} {
+      opacity:1;
       transform:translateX(0);
     }
   }
 
   .cl-accordion-content {
-    background-color:#1a1b1c;
+    background-color:$wht-1;
     flex:1 1 auto;
     overflow-x:hidden;
     overflow-y:auto;
