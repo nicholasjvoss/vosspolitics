@@ -22,7 +22,7 @@ export default class ButtonPage extends Component {
           <h2 className="demo-component__title">Secondary</h2>
           <Button buttonType={ 2 }>Secondary</Button>
         </div>
-        
+
         <div className="demo-component">
           <h2 className="demo-component__title">Tertiary</h2>
           <Button buttonType={ 3 }>Tertiary</Button>
@@ -41,6 +41,11 @@ export default class ButtonPage extends Component {
         <div className="demo-component">
           <h2 className="demo-component__title">With Icon</h2>
           <Button icon="p-icon-gear" />
+        </div>
+
+        <div className="demo-component">
+          <h2 className="demo-component__title">Loading</h2>
+          <Button loading>Text</Button>
         </div>
       </section>
     );

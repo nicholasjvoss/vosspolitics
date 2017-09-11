@@ -2,6 +2,16 @@
 // Button - Base styles for button
 // =============================================
 
+@keyframes loader {
+  0% {
+    transform:rotate(0deg);
+  }
+
+  100% {
+    transform:rotate(360deg);
+  }
+}
+
 .nv-button {
   border-radius:4px;
   border-color:transparent;
@@ -46,5 +56,19 @@
   &.button-error {
     background-color:$red-1;
     border-color:$red-2;
+  }
+
+  &.loading:before {
+    background:#fff;
+    animation-duration:.3s;
+    animation-iteration-count:infinite;
+    animation-name:loader;
+    animation-timing-function:linear;
+    border-radius:4px;
+    content:' ';
+    display:inline-block;
+    height:15px;
+    right:0;
+    width:3px;
   }
 }
