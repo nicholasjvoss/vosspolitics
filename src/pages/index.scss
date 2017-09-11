@@ -1,0 +1,10 @@
+@import './common/styles/normalize.scss';
+@import './common/styles/colors.scss';
+@import './common/styles/base.scss';
+@import './common/styles/typography.scss';
+
+@import './common/index.scss';
+
+body {
+  background: blue !important;
+}

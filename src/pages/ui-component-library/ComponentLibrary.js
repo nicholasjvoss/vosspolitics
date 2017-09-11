@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
-import './index.scss';
 
 // ===== Components =====
-import ButtonPage from './library-pages/ButtonPage';
-import ColorPage from './library-pages/ColorPage';
-import IconPage from './library-pages/IconPage';
+import ButtonPage from './scripts/ButtonPage';
+import ColorPage from './scripts/ColorPage';
+import IconPage from './scripts/IconPage';
 
 export default class ComponentLibrary extends Component {
     constructor(props) {
@@ -55,7 +54,6 @@ export default class ComponentLibrary extends Component {
       const { activeTab } = this.state;
       const tabId = `tabId-${ idx }`;
       const { name } = tab;
-      console.log(idx, activeTab);
       const selectedCls = idx === activeTab ? 'mod-selected' : '';
 
       return (
