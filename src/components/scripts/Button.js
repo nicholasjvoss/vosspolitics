@@ -3,11 +3,12 @@ import cx from 'classnames';
 
 export default class Button extends Component {
   static defaultProps = {
+    action: ()=> {},
     buttonType: 2, // defaults to button-secondary
   }
 
   render() {
-    const { buttonType, children, icon, loading } = this.props;
+    const { action, buttonType, children, icon, loading } = this.props;
     const buttonTypeCls = {
       'nv-button button-primary': buttonType === 1,
       'nv-button button-secondary': buttonType === 2,
@@ -20,7 +21,8 @@ export default class Button extends Component {
 
     return (
       <button
-        className={ cx(buttonTypeCls, icon, loadingCls) }>
+        className={ cx(buttonTypeCls, icon, loadingCls) }
+        onClick={ action }>
         { (!loading && children) && children }
       </button>
     );

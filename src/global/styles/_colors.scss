@@ -3,10 +3,13 @@
 // =============================================
 $dark-gry-1:#424242;
 $dark-gry-2:#242323;
+$dark-gry-3:#151515;
 $gry-3:#8c8b89;
 $gry-4:#c4bdb6;
 
-$grn-1:#0ca773;
+$grn-1:#1aaa7a;
+$grn-2:darken($grn-1, 5%);
+$grn-3:darken($grn-1, 10%);
 
 $red-1:#ffaf9B;
 $red-2:#df5333;

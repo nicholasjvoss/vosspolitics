@@ -1,15 +1,45 @@
 .homepage {
   display:flex;
   flex-direction:column;
+  height:100%;
 
-  h2 {
-    background-color:$grn-1;
-  }
+  // ===== Main Content =====
 
-  .nv-navbar {
-    background-color:$grn-1;
+  .nv-main {
     display:flex;
-    min-height:60px;
-    width:100%;
+    flex:1 1 auto;
+    flex-direction:column;
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    .masthead {
+      align-items:center;
+      background-color:$grn-1;
+      display:flex;
+      flex:1 1 auto;
+      flex-direction:column;
+      justify-content:center;
+      margin:auto 0;
+
+      h1 {
+        color:#fff;
+      }
+
+      .nv-button {
+        animation-name:colorChange;
+        animation-duration:2s;
+        animation-iteration-count:infinite;
+        animation-timing-function:cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        background-color:darken($grn-1, 5%);
+        min-height:60px;
+        padding:0 2rem;
+        transition:background-color .3s, transform .5s;
+
+        &:hover {
+          background-color:darken($grn-1, 10%);
+          transform:scale(1.05, 1.05);
+        }
+      }
+    }
   }
 }

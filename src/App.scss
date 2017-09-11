@@ -1,6 +1,9 @@
 // ===== Global Styles =====
 @import './global/_index.scss';
 
+// ===== Common Components =====
+@import './components/_index.scss';
+
 // ===== Pages/Modules =====
 @import './pages/ui-component-library/_index.scss';
 @import './pages/ui-homepage/_index.scss';
