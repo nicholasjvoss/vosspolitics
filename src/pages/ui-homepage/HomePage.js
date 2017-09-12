@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 
 // Components
 import Button from '../../components/scripts/Button.js';
@@ -8,7 +9,7 @@ export default class HomePage extends Component {
       super(props);
       this.state = {
         coords: {},
-        geoEnabled: true,
+        geoEnabled: false,
       }
   }
 
@@ -42,7 +43,8 @@ export default class HomePage extends Component {
   }
 
   showPosition(pos) {
-    this.setState({ coords: pos.coords });
+    console.log('showPosition fired');
+    this.setState({ coords: pos.coords, geoEnabled: true });
   }
 
   geoNotAvailable() {
