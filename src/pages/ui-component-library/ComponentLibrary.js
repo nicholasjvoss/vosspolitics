@@ -4,6 +4,7 @@ import cx from 'classnames';
 // ===== Components =====
 import ButtonPage from './scripts/ButtonPage';
 import ColorPage from './scripts/ColorPage';
+import FormPage from './scripts/FormPage';
 import IconPage from './scripts/IconPage';
 
 export default class ComponentLibrary extends Component {
@@ -20,6 +21,7 @@ export default class ComponentLibrary extends Component {
       const libraryComponents = [
           { 'name': 'Buttons', 'component': <ButtonPage /> },
           { 'name': 'Colors', 'component': <ColorPage /> },
+          { 'name': 'Form Elements', 'component': <FormPage /> },
           { 'name': 'Icons', 'component': <IconPage /> },
       ];
       const menuActiveCls = menuIsActive ? 'mod-active' : '';

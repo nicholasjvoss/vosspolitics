@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import store from './store';
+import PolStore from './store';
 
 //components
 import List from './pages/ui-homepage/HomePage';
@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <List
         className="App command"
-        store={ store } />
+        store={ PolStore } />
     );
   }
 }
