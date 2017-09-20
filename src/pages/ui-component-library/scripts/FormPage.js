@@ -5,6 +5,13 @@ import FormText from '../../../components/scripts/FormText';
 import Button from '../../../components/scripts/Button';
 
 export default class FormPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      formData: {},
+    }
+  }
+
   static defaultProps = {
 
   }
@@ -19,9 +26,9 @@ export default class FormPage extends Component {
             <h2 className="demo-component__title">Text</h2>
             <FormText
               inputId="firstName"
-              inputName="name"
+              inputName="address"
               inputPlaceholder="Address"
-              inputOnChange={ this.handleInputDidChange }
+              inputOnChange={ this.handleInputDidChange.bind(this) }
               inputRequired={ false }
               label="Address"
             />
@@ -30,7 +37,7 @@ export default class FormPage extends Component {
               inputId="city"
               inputName="city"
               inputPlaceholder="City"
-              inputOnChange={ this.handleInputDidChange }
+              inputOnChange={ this.handleInputDidChange.bind(this) }
               inputRequired={ false }
               label="City"
             />
@@ -39,7 +46,7 @@ export default class FormPage extends Component {
               inputId="state"
               inputName="State"
               inputPlaceholder="State"
-              inputOnChange={ this.handleInputDidChange }
+              inputOnChange={ this.handleInputDidChange.bind(this) }
               inputRequired={ false }
               label="State"
             />
@@ -48,9 +55,9 @@ export default class FormPage extends Component {
               inputId="zipCode"
               inputName="zip"
               inputPlaceholder="Zip code"
-              inputOnChange={ this.handleInputDidChange }
+              inputOnChange={ this.handleInputDidChange.bind(this) }
               inputRequired={ false }
-              label="Address"
+              label="Zip"
             />
 
             <Button
@@ -65,7 +72,11 @@ export default class FormPage extends Component {
   }
 
   handleInputDidChange(e) {
-    console.log(e.target);
+    const { formData } = this.state;
+    const namey = e.target.name;
+    const val = e.target.value;
+    Object.assign(formData, { [namey]: val });
+    console.log(formData);
   }
 
   handleFormSubmit(data) {

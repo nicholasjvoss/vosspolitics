@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 export default class Button extends Component {
   static defaultProps = {
     inputOnChange: ()=> {},
     inputRequired: false,
+  }
+
+  static propTypes = {
+    // inputOnChange: PropTypes.object.required,
   }
 
   render() {
