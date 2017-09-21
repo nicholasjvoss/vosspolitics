@@ -17,7 +17,8 @@ export default class FormPage extends Component {
   }
 
   render() {
-    // const { children } = this.props;
+    const { formData } = this.state;
+    console.log(formData);
 
     return (
       <section className="library-page__buttons">
@@ -73,14 +74,15 @@ export default class FormPage extends Component {
 
   handleInputDidChange(e) {
     const { formData } = this.state;
-    const namey = e.target.name;
+    const name = e.target.name;
     const val = e.target.value;
-    Object.assign(formData, { [namey]: val });
-    console.log(formData);
+    const updatedFormData = Object.assign(formData, { [name]: val });
+
+    this.setState({ formData: formData });
   }
 
   handleFormSubmit(data) {
     // e.preventDefault();
-    console.log('form submitted!', data);
+    // console.log('form submitted!', data);
   }
 }

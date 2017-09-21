@@ -34,8 +34,4 @@ export default class Button extends Component {
       </span>
     );
   }
-
-  handleInputChange() {
-
-  }
 }

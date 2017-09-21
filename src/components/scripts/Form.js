@@ -5,7 +5,6 @@ export default class Button extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formData: {},
       inputOnChange: ()=> {},
     }
   }
@@ -27,8 +26,8 @@ export default class Button extends Component {
 
   handleFormSubmitDidClick(e) {
     e.preventDefault();
-    const { onFormSubmit } = this.props;
-    const { formData } = this.state;
-    onFormSubmit(formData); // will need to pass-in the state that contains all collected form data
+    const { formData, onFormSubmit } = this.props;
+    console.log(formData);
+    onFormSubmit(formData); // pass-in the state that contains all collected form data
   }
 }
