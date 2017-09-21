@@ -12,8 +12,17 @@ export default class Button extends Component {
     // inputOnChange: PropTypes.object.required,
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputData: {},
+    }
+  }
+
   render() {
     const { inputId, inputName, inputPlaceholder, inputOnChange, inputRequired, label, wrapperCls } = this.props;
+    const { inputData } = this.state;
+    // console.log(inputData);
 
     return (
       <span className={ cx('form-element', wrapperCls) }>
@@ -22,7 +31,7 @@ export default class Button extends Component {
           placeholder={ inputPlaceholder }
           id={ inputId }
           name={ inputName }
-          onChange={ inputOnChange }
+          onChange={ this.handleInputDidChange.bind(this) }
           required={ inputRequired }
           type="text"
         />
@@ -34,5 +43,17 @@ export default class Button extends Component {
         </label>
       </span>
     );
+  }
+
+  handleInputDidChange(e) {
+    //   this.props.inputOnChange('123');
+
+      const { inputData } = this.state;
+      const name = e.target.name;
+      const val = e.target.value;
+      const updatedinputData = Object.assign(inputData, { [name]: val });
+
+      this.setState({ inputData: updatedinputData });
+      this.props.inputOnChange(inputData);
   }
 }

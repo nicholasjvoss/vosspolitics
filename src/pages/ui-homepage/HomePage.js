@@ -16,6 +16,9 @@ export default class HomePage extends Component {
   }
 
   render() {
+      const { formData } = this.state;
+      console.log(formData, this.props.store.userData)
+
     return (
       <section className="homepage">
         <main className="nv-main">
@@ -71,12 +74,10 @@ export default class HomePage extends Component {
     );
   }
 
-  handleInputDidChange(e) {
+  handleInputDidChange(data) {
     const { formData } = this.state;
-    const name = e.target.name;
-    const val = e.target.value;
-    const updatedFormData = Object.assign(formData, { [name]: val });
-
+    const updatedFormData = Object.assign(formData, data);
+    //
     this.setState({ formData: updatedFormData });
   }
 
