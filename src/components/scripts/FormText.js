@@ -14,8 +14,9 @@ export default class Button extends Component {
 
   render() {
     const { inputId, inputName, inputPlaceholder, inputOnChange, inputRequired, label, wrapperCls } = this.props;
+
     return (
-      <span className="form-element">
+      <span className={ cx('form-element', wrapperCls) }>
         <input
           className="form-field"
           placeholder={ inputPlaceholder }

@@ -15,7 +15,7 @@ export default class Button extends Component {
   }
 
   render() {
-    const { children, inputOnChange, onFormSubmit, wrapperCls } = this.props;
+    const { children, wrapperCls } = this.props;
     return (
       <form
         className={ cx('nv-form', wrapperCls)}
@@ -27,7 +27,6 @@ export default class Button extends Component {
   handleFormSubmitDidClick(e) {
     e.preventDefault();
     const { formData, onFormSubmit } = this.props;
-    console.log(formData);
-    onFormSubmit(formData); // pass-in the state that contains all collected form data
+    onFormSubmit(formData); // submit all collected input values
   }
 }

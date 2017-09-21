@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import cx from 'classnames';
-import Form from '../../../components/scripts/Form';
+// import Form from '../../../components/scripts/Form';
 import FormText from '../../../components/scripts/FormText';
 import Button from '../../../components/scripts/Button';
 
@@ -12,17 +12,13 @@ export default class FormPage extends Component {
     }
   }
 
-  static defaultProps = {
-
-  }
-
   render() {
     const { formData } = this.state;
     console.log(formData);
 
     return (
       <section className="library-page__buttons">
-        <Form onFormSubmit={ this.handleFormSubmit }>
+        <form onSubmit={ this.handleFormSubmit.bind(this) }>
           <div className="demo-component">
             <h2 className="demo-component__title">Text</h2>
             <FormText
@@ -67,7 +63,7 @@ export default class FormPage extends Component {
               type="submit"
             />
           </div>
-        </Form>
+        </form>
       </section>
     );
   }
@@ -78,11 +74,12 @@ export default class FormPage extends Component {
     const val = e.target.value;
     const updatedFormData = Object.assign(formData, { [name]: val });
 
-    this.setState({ formData: formData });
+    this.setState({ formData: updatedFormData });
   }
 
-  handleFormSubmit(data) {
-    // e.preventDefault();
-    // console.log('form submitted!', data);
+  handleFormSubmit(e) {
+      e.preventDefault();
+      const { formData } = this.state;
+      console.log('submitted: ', formData);
   }
 }

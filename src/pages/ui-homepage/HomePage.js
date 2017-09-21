@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import { civicInfoApiKey } from '../../secret/APIKeys';
+// import { civicInfoApiKey } from '../../secret/APIKeys';
 
 // Components
 import Button from '../../components/scripts/Button.js';
