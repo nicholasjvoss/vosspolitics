@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
+import { Link } from 'react-router-dom';
 // import { civicInfoApiKey } from '../../secret/APIKeys';
 
 // Components
 import Button from '../../components/scripts/Button.js';
 import FormText from '../../components/scripts/FormText.js';
 
-@observer
+@inject('politicsStore') @observer
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +18,7 @@ export default class HomePage extends Component {
 
   render() {
     const { formData } = this.state;
+    // console.log(this.props.politicsStore);
 
     return (
       <section className="homepage">
@@ -61,11 +63,11 @@ export default class HomePage extends Component {
                 label="Address"
               />
 
-              <Button
-                buttonType={ 1 }
-                type="submit">
-                See what they're up to <span className="p-icon-chevron-right" />
-              </Button>
+              <Link onClick={ this.handleFindRepButtonDidClick.bind(this)} to="/dashboard">
+                  <Button buttonType={ 1 }>
+                    See what they're up to <span className="p-icon-chevron-right" />
+                  </Button>
+              </Link>
             </form>
           </div>
         </main>
@@ -79,11 +81,9 @@ export default class HomePage extends Component {
     this.setState({ formData: updatedFormData });
   }
 
-  handleFindRepButtonDidClick(e) {
-      e.preventDefault();
+  handleFindRepButtonDidClick() {
       const { formData } = this.state;
-      this.props.store.userData = formData;
-      console.log(this.props.store.userData);
+      this.props.politicsStore.userData = formData;
   }
 
   // ===== api call =====
