@@ -16,8 +16,7 @@ export default class HomePage extends Component {
   }
 
   render() {
-      const { formData } = this.state;
-      console.log(formData, this.props.store.userData)
+    const { formData } = this.state;
 
     return (
       <section className="homepage">
@@ -76,8 +75,7 @@ export default class HomePage extends Component {
 
   handleInputDidChange(data) {
     const { formData } = this.state;
-    const updatedFormData = Object.assign(formData, data);
-    //
+    const updatedFormData = { ...formData, ...data };
     this.setState({ formData: updatedFormData });
   }
 
@@ -85,6 +83,7 @@ export default class HomePage extends Component {
       e.preventDefault();
       const { formData } = this.state;
       this.props.store.userData = formData;
+      console.log(this.props.store.userData);
   }
 
   // ===== api call =====
