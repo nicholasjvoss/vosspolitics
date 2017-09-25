@@ -5,7 +5,10 @@ import queryString from 'query-string';
 @inject('politicsStore') @observer
 export default class Dashboard extends Component {
   render() {
-      console.log(this.props.politicsStore.userData);
+    const { location } = this.props;
+    const { search } = location;
+    const address = queryString.parse(search);
+    console.log(address);
 
     return (
       <div>

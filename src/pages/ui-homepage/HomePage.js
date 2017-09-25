@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 // import { civicInfoApiKey } from '../../secret/APIKeys';
 
 // Components
-import Button from '../../components/scripts/Button.js';
-import FormText from '../../components/scripts/FormText.js';
+import FindRepsForm from '../../components/scripts/FindRepsForm.js';
 
 @inject('politicsStore') @observer
 export default class HomePage extends Component {
@@ -26,68 +25,15 @@ export default class HomePage extends Component {
           <div className="masthead">
             <h1>Your representatives work for <i>you!</i></h1>
 
-            <form onSubmit={ this.handleFindRepButtonDidClick.bind(this) }>
-              <FormText
-                inputId="address"
-                inputName="address"
-                inputOnChange={ this.handleInputDidChange.bind(this) }
-                inputPlaceholder="Address"
-                inputRequired={ false }
-                label="Address"
-              />
-
-              <FormText
-                inputId="city"
-                inputName="city"
-                inputOnChange={ this.handleInputDidChange.bind(this) }
-                inputPlaceholder="City"
-                inputRequired={ false }
-                label="City"
-              />
-
-              <FormText
-                inputId="state"
-                inputName="State"
-                inputOnChange={ this.handleInputDidChange.bind(this) }
-                inputPlaceholder="State"
-                inputRequired={ false }
-                label="State"
-              />
-
-              <FormText
-                inputId="zipCode"
-                inputName="zip"
-                inputOnChange={ this.handleInputDidChange.bind(this) }
-                inputPlaceholder="Zip"
-                inputRequired={ false }
-                label="Address"
-              />
-
-              <Link onClick={ this.handleFindRepButtonDidClick.bind(this)} to="/dashboard">
-                  <Button buttonType={ 1 }>
-                    See what they're up to <span className="p-icon-chevron-right" />
-                  </Button>
-              </Link>
-            </form>
+            <FindRepsForm />
           </div>
         </main>
       </section>
     );
   }
 
-  handleInputDidChange(data) {
-    const { formData } = this.state;
-    const updatedFormData = { ...formData, ...data };
-    this.setState({ formData: updatedFormData });
-  }
-
-  handleFindRepButtonDidClick() {
-      const { formData } = this.state;
-      this.props.politicsStore.userData = formData;
-  }
-
-  // ===== api call =====
-
+  // // ===== api call =====
+  //
   // componentDidMount() {
   //
   //
@@ -99,9 +45,9 @@ export default class HomePage extends Component {
   //
   //   fetch(myRequest, myInit).then((response)=> {
   //     let test = response;
-  //     console.log(test);
+  //     console.log(response);
   //   });
   // }
-
-  // ==========
+  //
+  // // ==========
 }
