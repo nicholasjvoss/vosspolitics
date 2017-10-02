@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
-// import { civicInfoApiKey } from '../../secret/APIKeys';
 
 // Components
 import FindRepsForm from '../../components/scripts/FindRepsForm.js';

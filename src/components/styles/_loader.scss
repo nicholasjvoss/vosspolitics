@@ -1,0 +1,35 @@
+// =============================================
+// Button - Base styles for button
+// =============================================
+
+@keyframes loading {
+  0% {
+    transform:rotate(0deg);
+  }
+
+  100% {
+    transform:rotate(360deg);
+  }
+}
+
+.loader {
+  animation-name:loading;
+  animation-duration:.6s;
+  animation-iteration-count:infinite;
+  animation-timing-function:ease-out;
+  border-radius:50%;
+  border-width:3px;
+  border-style:solid;
+  border-top-color:$dark-gry-1;
+  border-right-color:transparent;
+  border-bottom-color:$dark-gry-1;
+  border-left-color:transparent;
+  display:inline-block;
+  height:25px;
+  width:25px;
+
+  &.mod-dark {
+    border-top-color:white;
+    border-bottom-color:white;
+  }
+}
