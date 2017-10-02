@@ -22,7 +22,7 @@ export default class Dashboard extends Component {
         return (
             <div>
                 { hasResults && this.renderRepSearch() }
-                { fetched ? this.renderReps() : this.renderLoader() }
+                { fetched ? this.renderReps() : <Loader /> }
             </div>
         );
     }
@@ -39,10 +39,6 @@ export default class Dashboard extends Component {
         } else {
             this.setState({ hasResults: true });
         }
-    }
-
-    renderLoader() {
-        return <Loader />
     }
 
     renderRepSearch() {
