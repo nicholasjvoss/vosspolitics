@@ -7,12 +7,21 @@ import Loader from '../../components/scripts/Loader';
 
 @inject('politicsStore') @observer
 export default class Dashboard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            hasResults: false,
+        }
+    }
+
     render() {
-        const { repsLoaded, politicsStore } = this.props;
+        const { politicsStore } = this.props;
         const { fetched } = politicsStore;
+        const { hasResults } = this.state;
 
         return (
             <div>
+                { hasResults && this.renderRepSearch() }
                 { fetched ? this.renderReps() : this.renderLoader() }
             </div>
         );
@@ -23,11 +32,21 @@ export default class Dashboard extends Component {
         const { search } = location;
         const userLocation = queryString.parse(search);
         const address = encodeURI(userLocation.address);
-        this.props.politicsStore.fetchReps(address);
+
+        if(search.length > 0) {
+            this.props.politicsStore.fetchReps(address);
+            this.setState({ hasResults: false });
+        } else {
+            this.setState({ hasResults: true });
+        }
     }
 
     renderLoader() {
         return <Loader />
+    }
+
+    renderRepSearch() {
+        return <div>rep search here</div>
     }
 
     renderReps() {
@@ -36,6 +55,9 @@ export default class Dashboard extends Component {
 
         console.log(repData.officials[0]);
 
-        return <div><h2>Here are your representatives for <div>{ userAddress }</div></h2></div>
+        return (
+            <div>
+                <h2>Here are your representatives for <span className="user-address">{ userAddress }</span></h2>
+            </div>)
     }
 }

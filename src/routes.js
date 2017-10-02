@@ -17,7 +17,6 @@ const Routes = (props) => (
           <Route exact path="/" component={ HomePageWithStore } />
           <Route path="/dashboard/" component={ DashboardSubLayout } />
           <Route path="/component-library" component={ComponentLibrary} />
-          {/* <Route path="*" component={NotFound} /> */}
           <Redirect to="/" />
         </Switch>
       </BrowserRouter>
