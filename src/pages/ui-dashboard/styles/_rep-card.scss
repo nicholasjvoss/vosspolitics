@@ -1,0 +1,16 @@
+.rep-card {
+    background-color:#fff;
+    box-shadow:0 1px 1px 0 rgba(0,0,0,.16);
+    width:300px;
+
+    .party {
+        margin-top:0;
+    }
+
+    .rep-card__photo {
+        background-position:top center;
+        background-repeat:no-repeat;
+        background-size:cover;
+        height:300px;
+    }
+}

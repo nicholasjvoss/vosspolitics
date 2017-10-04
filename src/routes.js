@@ -12,27 +12,27 @@ const stores = { politicsStore };
 
 const Routes = (props) => (
     <Provider {...stores}>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={ HomePageWithStore } />
-          <Route path="/dashboard/" component={ DashboardSubLayout } />
-          <Route path="/component-library" component={ComponentLibrary} />
-          <Redirect to="/" />
-        </Switch>
-      </BrowserRouter>
+        <BrowserRouter>
+            <Switch>
+                <Route exact path="/" component={ HomePageWithStore } />
+                <Route path="/dashboard/" component={ DashboardSubLayout } />
+                <Route path="/component-library" component={ComponentLibrary} />
+                <Redirect to="/" />
+            </Switch>
+        </BrowserRouter>
     </Provider>
 );
 
 const DashboardSubLayout = (props) => (
     <Provider {...stores}>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/dashboard" component={ Dashboard } />
-          <Route path="/dashboard/:address" component={ Dashboard } />
-          {/* <Route path="*" component={NotFound} /> */}
-          <Redirect to="/" />
-        </Switch>
-      </BrowserRouter>
+        <BrowserRouter>
+            <Switch>
+                <Route path="/dashboard" component={ Dashboard } />
+                <Route path="/dashboard/:address" component={ Dashboard } />
+                {/* <Route path="*" component={NotFound} /> */}
+                <Redirect to="/" />
+            </Switch>
+        </BrowserRouter>
     </Provider>
 );
 

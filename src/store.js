@@ -16,6 +16,7 @@ class PoliticsStore {
             }
             const response = await fetch(request, options);
             const json = await response.json();
+            console.log(json);
 
             runInAction(() => {
                 this.fetched = true;
