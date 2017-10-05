@@ -1,3 +1,14 @@
 .page-dashboard {
-    
+    display:flex;
+    flex-direction:column;
+    height:100%;
+
+    .primary-header {
+        flex:0 0 auto;
+    }
+
+    main {
+        flex:1 1 auto;
+        overflow-y:auto;
+    }
 }

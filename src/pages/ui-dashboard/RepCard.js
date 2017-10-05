@@ -2,17 +2,22 @@ import React, { Component } from 'react';
 
 export default class RepCard extends Component {
     render() {
-        const { repData } = this.props;
-        console.log(repData);
+        const { office, repData } = this.props;
+        const { address, channels, name, party, phones, photoUrl, urls } = repData;
+        console.log(this.props);
+
+        const styles = {
+            backgroundImage: `url(${photoUrl})`,
+        }
 
         return (
             <div className="rep-card">
-                test
-                {/* <div
+                <div
                     className="rep-card__photo"
                     style={ styles } />
                     <h3>{ name }</h3>
-                <h4>{ party }</h4> */}
+                    <span>{office.name}</span>
+                <h4>{ party }</h4>
             </div>
         )
     }
