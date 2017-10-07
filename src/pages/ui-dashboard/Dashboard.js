@@ -3,11 +3,13 @@ import { inject, observer } from 'mobx-react';
 import queryString from 'query-string';
 
 // ===== components =====
-import Loader from '../../components/scripts/Loader';
-import PrimaryHeader from '../../components/scripts/PrimaryHeader';
+import DashboardNav from './DashboardNav';
+import DashboardHeader from './DashboardHeader';
 import FindRepsForm from '../../components/scripts/FindRepsForm';
+import Loader from '../../components/scripts/Loader';
 import RepList from './RepList';
 import RepCard from './RepCard';
+import DashboardTabs from './DashboardTabs';
 
 @inject('politicsStore') @observer
 export default class Dashboard extends Component {
@@ -25,10 +27,16 @@ export default class Dashboard extends Component {
 
         return (
             <div className="page-dashboard">
-                <PrimaryHeader />
-                <main>
+                <nav className="page-dashboard__nav">
+                    <DashboardNav store={ politicsStore } />
+                </nav>
+
+                <main className="page-dashboard__main">
+                    <DashboardHeader />
+
                     { !hasResults && this.renderRepSearch() }
-                    { fetched ? this.renderReps() : <Loader /> }
+                    { fetched ? this.renderTabContent() : <Loader /> }
+                    {/* { fetched ? this.renderReps() : <Loader /> } */}
                 </main>
             </div>
         );
@@ -48,6 +56,12 @@ export default class Dashboard extends Component {
         }
     }
 
+    renderTabContent() {
+        const { politicsStore } = this.props;
+        const { currentTab } = politicsStore;
+        return DashboardTabs[currentTab];
+    }
+
     renderRepSearch() {
         return <FindRepsForm />
     }
@@ -57,7 +71,7 @@ export default class Dashboard extends Component {
         const userAddress = `${repData.normalizedInput.line1}, ${repData.normalizedInput.city}, ${repData.normalizedInput.state} ${repData.normalizedInput.zip}`;
 
         return (
-            <div>
+            <div className="dashboard-content">
                 <h2>Here are your representatives for <span className="user-address">{ userAddress }</span></h2>
                 <RepList repListData={ repData } />
             </div>

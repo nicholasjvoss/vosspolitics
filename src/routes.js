@@ -27,8 +27,7 @@ const DashboardSubLayout = (props) => (
     <Provider {...stores}>
         <BrowserRouter>
             <Switch>
-                <Route path="/dashboard" component={ Dashboard } />
-                <Route path="/dashboard/:address" component={ Dashboard } />
+                <Route exact path="/dashboard" component={ Dashboard } />
                 {/* <Route path="*" component={NotFound} /> */}
                 <Redirect to="/" />
             </Switch>

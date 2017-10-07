@@ -2,6 +2,7 @@ import { observable, action, runInAction } from 'mobx';
 import { civicInfoApiKey } from './secret/APIKeys';
 
 class PoliticsStore {
+    @observable currentTab = 0;
     @observable fetched = false;
     @observable repData = {};
 

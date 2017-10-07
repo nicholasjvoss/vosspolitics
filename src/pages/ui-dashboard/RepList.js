@@ -33,7 +33,7 @@ export default class RepList extends Component {
 
         return (
             <div key={ `rep-${idx}` }>
-                <h2>{ name }</h2>
+                <h3>{ name }</h3>
                 <ul>{ repCard }</ul>
             </div>
         )

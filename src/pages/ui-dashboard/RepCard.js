@@ -11,12 +11,12 @@ export default class RepCard extends Component {
         }
 
         return (
-            <div className="rep-card">
+            <div className="rep-card" onClick={ () => {console.log(name)} }>
                 <div
                     className="rep-card__photo"
                     style={ styles } />
-                    <h3>{ name }</h3>
-                    <span>{office.name}</span>
+                <h3>{ name }</h3>
+                <span>{office.name}</span>
                 <h4>{ party }</h4>
             </div>
         )

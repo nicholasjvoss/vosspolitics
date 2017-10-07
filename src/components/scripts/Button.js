@@ -9,7 +9,7 @@ export default class Button extends Component {
   }
 
   render() {
-    const { action, buttonType, children, icon, loading, type } = this.props;
+    const { action, buttonType, children, icon, loading, type, wrapperCls } = this.props;
     const buttonTypeCls = {
       'nv-button button-primary': buttonType === 1,
       'nv-button button-secondary': buttonType === 2,
@@ -22,7 +22,7 @@ export default class Button extends Component {
 
     return (
       <button
-        className={ cx(buttonTypeCls, icon, loadingCls) }
+          className={ cx(buttonTypeCls, icon, loadingCls, wrapperCls) }
         onClick={ action }
         type={ type }>
         { (!loading && children) && children }
