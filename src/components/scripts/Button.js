@@ -23,9 +23,9 @@ export default class Button extends Component {
     return (
       <button
           className={ cx(buttonTypeCls, icon, loadingCls, wrapperCls) }
-        onClick={ action }
-        type={ type }>
-        { (!loading && children) && children }
+          onClick={ action }
+          type={ type }>
+          { (!loading && children) && children }
       </button>
     );
   }

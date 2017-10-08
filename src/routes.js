@@ -6,7 +6,8 @@ import politicsStore from './store.js';
 import HomePageWithStore from './pages/ui-homepage/HomePageWithStore';
 import Dashboard from './pages/ui-dashboard/Dashboard';
 import ComponentLibrary from './pages/ui-component-library/ComponentLibrary';
-import NotFound from './pages/ui-not-found/NotFound';
+import TabWrapper from './components/tabs/scripts/TabWrapper';
+// import NotFound from './pages/ui-not-found/NotFound';
 
 const stores = { politicsStore };
 
@@ -17,6 +18,7 @@ const Routes = (props) => (
                 <Route exact path="/" component={ HomePageWithStore } />
                 <Route path="/dashboard/" component={ DashboardSubLayout } />
                 <Route path="/component-library" component={ComponentLibrary} />
+                <Route path="/test" component={TabWrapper} />
                 <Redirect to="/" />
             </Switch>
         </BrowserRouter>
