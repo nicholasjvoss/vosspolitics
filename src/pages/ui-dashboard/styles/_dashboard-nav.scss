@@ -1,23 +1,24 @@
-.page-dashboard__nav {
+.page-dashboard-layout__nav {
     background-color:$dark-gry-3;
     color:$wht-1;
     flex:0 0 auto;
     width:250px;
 
-    > ul {
+    > ul.tab-list__container {
         margin:0;
         list-style-type:none;
         padding:0;
 
-        li {
+        li.tab-list__item {
             display:flex;
             flex-direction:column;
 
-            a {
+            .tab {
                 color:$wht-1;
                 font-family:'Montserrat';
                 margin:auto 0;
                 padding:2rem;
+                text-align:left;
                 text-decoration:none;
                 transition:background-color .2s, color .2s;
 

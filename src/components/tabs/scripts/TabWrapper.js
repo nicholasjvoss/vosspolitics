@@ -19,14 +19,12 @@ export default class TabWrapper extends Component {
 
         return (
             <div className={ cx('tab-wrapper', wrapperCls) }>
-                <div className="tab-list-wrapper">
-                    {
-                        React.cloneElement(children[0], {
-                            onTabClick: this.handleTabDidClick.bind(this),
-                            tabIndex: tabIndex,
-                        })
-                    }
-                </div>
+                {
+                    React.cloneElement(children[0], {
+                        onTabClick: this.handleTabDidClick.bind(this),
+                        tabIndex: tabIndex,
+                    })
+                }
 
                 {
                     React.cloneElement(children[1], {

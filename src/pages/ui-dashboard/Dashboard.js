@@ -11,6 +11,7 @@ import RepList from './RepList';
 import TabWrapper from '../../components/tabs/scripts/TabWrapper';
 import TabList from '../../components/tabs/scripts/TabList'
 import TabPanel from '../../components/tabs/scripts/TabPanel'
+import Tab from '../../components/tabs/scripts/Tab';
 
 @inject('politicsStore') @observer
 export default class Dashboard extends Component {
@@ -52,15 +53,15 @@ export default class Dashboard extends Component {
         const repData = this.props.politicsStore.repData;
 
         return (
-            <TabWrapper wrapperCls="dashboard-navigation">
-                <TabList>
-                    <span>My Representatives</span>
+            <TabWrapper wrapperCls="page-dashboard-layout" tabIdx={ 0 }>
+                <TabList wrapperCls="page-dashboard-layout__nav">
+                    <Tab>My Representatives</Tab>
                     <span>link 2</span>
                 </TabList>
 
                 <TabPanel>
                     <div>{ this.renderReps() }</div>
-                    <div>component 2</div>
+                    <div>more content</div>
                 </TabPanel>
             </TabWrapper>
         )

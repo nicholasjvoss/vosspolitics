@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 
 export default class TabList extends Component {
     render() {
-        const { children } = this.props;
+        const { children, wrapperCls } = this.props;
 
         return (
-            <ul className="tab-list">{ children.map(this.renderTabList.bind(this)) }</ul>
+            <div className={ cx('tab-list', wrapperCls) }>
+                <ul className="tab-list__container">{ children.map(this.renderTabList.bind(this)) }</ul>
+            </div>
         )
     }
 
     renderTabList(tab, idx) {
         return (
-            <li key={`tab-${ idx }`} onClick={ this.handleTabDidClick.bind(this, idx) }>{ tab }</li>
+            <li
+                className="tab-list__item"
+                key={`tab-${ idx }`}
+                onClick={ this.handleTabDidClick.bind(this, idx) }>
+
+                { tab }
+            </li>
         )
     }
 
