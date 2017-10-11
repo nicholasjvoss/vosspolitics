@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import cx from 'classnames';
 
-import Button from '../../../components/scripts/Button';
+import Button from '../../../components/button/scripts/Button';
 
 export default class ButtonPage extends Component {
   static defaultProps = {

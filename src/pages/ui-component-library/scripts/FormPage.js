@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import cx from 'classnames';
 // import Form from '../../../components/scripts/Form';
 import FormText from '../../../components/scripts/FormText';
-import Button from '../../../components/scripts/Button';
+import Button from '../../../components/button/scripts/Button';
 
 export default class FormPage extends Component {
   constructor(props) {

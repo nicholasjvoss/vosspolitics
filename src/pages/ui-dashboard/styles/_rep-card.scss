@@ -1,6 +1,7 @@
 .rep-card {
     background-color:#fff;
     box-shadow:0 1px 1px 0 rgba(0,0,0,.16);
+    display:flex;
     width:300px;
 
     .party {
@@ -11,6 +12,12 @@
         background-position:top center;
         background-repeat:no-repeat;
         background-size:cover;
-        height:300px;
+        border-radius:50%;
+        height:100px;
+        width:100px;
+    }
+
+    .rep-card__info {
+
     }
 }

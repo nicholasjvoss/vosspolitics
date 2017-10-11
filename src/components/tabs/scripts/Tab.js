@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import cx from 'classnames';
 
 // ===== components =====
-import Button from '../../scripts/Button';
+import Button from '../../button/scripts/Button';
 
 export default class Tab extends Component {
     render() {

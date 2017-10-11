@@ -12,7 +12,9 @@ export default class RepList extends Component {
 
 
         return (
-            <div>{ offices.map(this.renderOffices.bind(this)) }</div>
+            <div className="rep-offices">
+                { offices.map(this.renderOffices.bind(this)) }
+            </div>
         )
     }
 
@@ -25,16 +27,16 @@ export default class RepList extends Component {
             const rep = (officials[index]);
 
             return (
-                <li>
+                <li className="rep-list__item">
                     <RepCard repData={ rep } office={ office } />
                 </li>
             );
         });
 
         return (
-            <div key={ `rep-${idx}` }>
+            <div className="rep-offices__office" key={ `rep-${idx}` }>
                 <h3>{ name }</h3>
-                <ul>{ repCard }</ul>
+                <ul className="rep-list">{ repCard }</ul>
             </div>
         )
     }

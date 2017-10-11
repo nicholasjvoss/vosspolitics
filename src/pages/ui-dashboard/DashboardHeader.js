@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 // ===== Components =====
-import Button from '../../components/scripts/Button';
+import Button from '../../components/button/scripts/Button';
 
 export default class PrimaryHeader extends Component {
     render() {

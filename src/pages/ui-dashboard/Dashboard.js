@@ -6,6 +6,8 @@ import queryString from 'query-string';
 import DashboardHeader from './DashboardHeader';
 import FindRepsForm from '../../components/scripts/FindRepsForm';
 import Loader from '../../components/scripts/Loader';
+import MyRepresentatives from './pages/MyRepresentatives';
+
 import RepList from './RepList';
 
 import TabWrapper from '../../components/tabs/scripts/TabWrapper';
@@ -65,8 +67,8 @@ export default class Dashboard extends Component {
                 </TabList>
 
                 <TabPanel wrapperCls="page-dashboard-layout__main">
-                    <div>{ this.renderReps() }</div>
-                    <div>more content</div>
+                    <MyRepresentatives repData={ repData } />
+                    <div>tab panel content here...</div>
                 </TabPanel>
             </TabWrapper>
         )
@@ -74,17 +76,5 @@ export default class Dashboard extends Component {
 
     renderRepSearch() {
         return <FindRepsForm />
-    }
-
-    renderReps() {
-        const repData = this.props.politicsStore.repData;
-        const userAddress = `${repData.normalizedInput.line1}, ${repData.normalizedInput.city}, ${repData.normalizedInput.state} ${repData.normalizedInput.zip}`;
-
-        return (
-            <div className="dashboard-content">
-                <h2>Here are your representatives for <span className="user-address">{ userAddress }</span></h2>
-                <RepList repListData={ repData } />
-            </div>
-        )
     }
 }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 
 // Components
-import Button from './Button.js';
+import Button from '../button/scripts/Button.js';
 import FormText from './FormText.js';
 
 export default class FindRepsForm extends Component {
