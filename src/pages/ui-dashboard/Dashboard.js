@@ -55,11 +55,16 @@ export default class Dashboard extends Component {
         return (
             <TabWrapper wrapperCls="page-dashboard-layout" tabIdx={ 0 }>
                 <TabList wrapperCls="page-dashboard-layout__nav">
-                    <Tab>My Representatives</Tab>
-                    <span>link 2</span>
+                    <Tab wrapperCls="page-dashboard-layout__tab">
+                        <span className="nav-menu-icon p-icon-user-circle-o" />My Representatives
+                    </Tab>
+
+                    <Tab wrapperCls="page-dashboard-layout__tab">
+                        <span className="nav-menu-icon p-icon-cog" />Another tab
+                    </Tab>
                 </TabList>
 
-                <TabPanel>
+                <TabPanel wrapperCls="page-dashboard-layout__main">
                     <div>{ this.renderReps() }</div>
                     <div>more content</div>
                 </TabPanel>

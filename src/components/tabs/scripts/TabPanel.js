@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 
 export default class TabPanel extends Component {
     render() {
-        const { children } = this.props;
+        const { children, wrapperCls } = this.props;
 
         return (
-            <div className="tab-panel-wrapper">{ children.map(this.renderTabPanels.bind(this)) }</div>
+            <div className={ cx('tab-panel-wrapper', wrapperCls) }>
+                { children.map(this.renderTabPanels.bind(this)) }
+            </div>
         )
     }
 

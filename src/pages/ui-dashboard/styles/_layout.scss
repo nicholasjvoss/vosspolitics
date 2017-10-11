@@ -4,6 +4,7 @@
 
     .page-dashboard-layout {
         display:flex;
+        flex:1 1 auto;
 
         .page-dashboard-layout__nav {
             background-color:$dark-gry-3;
@@ -15,6 +16,7 @@
         .page-dashboard-layout__main {
             display:flex;
             flex-direction:column;
+            overflow-y:auto;
             width:100%;
 
             .dashboard-header {
@@ -35,10 +37,6 @@
                         color:$grn-1;
                     }
                 }
-            }
-
-            .dashboard-content {
-                overflow-y:auto;
             }
         }
     }

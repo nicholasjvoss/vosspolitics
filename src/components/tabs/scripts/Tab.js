@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 
 // ===== components =====
 import Button from '../../scripts/Button';
 
 export default class Tab extends Component {
     render() {
-        const { children } = this.props;
+        const { children, wrapperCls } = this.props;
 
         return (
             <Button
                 buttonType={ 4 }
-                wrapperCls="tab"
-            >
+                wrapperCls={ cx('tab', wrapperCls) }>
                 { children }
             </Button>
         )
