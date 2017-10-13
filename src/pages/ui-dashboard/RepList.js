@@ -3,24 +3,25 @@ import cx from 'classnames';
 
 // ===== components =====
 import RepCard from './RepCard';
+import RepDetails from './RepDetails';
 
 export default class RepList extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            selectedRepIdx: 0,
+            selectedRep: null,
         }
     }
 
     render() {
         const { repListData } = this.props;
-        const { offices } = repListData;
-        const { selectedRepIdx } = this.state;
-        // console.log(offices);
-        // const { officials } = repListData;
-        console.log(selectedRepIdx);
-        const selectedRep = selectedRepIdx > 0 ? <div>{selectedRepIdx}</div> : <div>nothing selected</div>;
+        const { offices, officials } = repListData;
+        const { selectedRep } = this.state;
+
+        const repDetails = selectedRep ?
+            <RepDetails repData={ selectedRep } /> :
+            <div>Select a representative to see details</div>;
 
 
         return (
@@ -29,7 +30,7 @@ export default class RepList extends Component {
                     { offices.map(this.renderOffices.bind(this)) }
                 </div>
                 <div className={ cx('rep-detail') }>
-                    <div className="rep-detail__inner">{ selectedRepIdx }</div>
+                    <div className="rep-detail__inner">{ repDetails }</div>
                 </div>
             </div>
 
@@ -46,7 +47,10 @@ export default class RepList extends Component {
 
             return (
                 <li className="rep-list__item">
-                    <RepCard onCardClick={ this.onCardDidClick.bind(this, index) } repData={ rep } office={ office } />
+                    <RepCard
+                        onCardClick={ this.onCardDidClick.bind(this, rep) }
+                        repData={ rep }
+                        office={ office } />
                 </li>
             );
         });
@@ -59,7 +63,7 @@ export default class RepList extends Component {
         )
     }
 
-    onCardDidClick(idx) {
-        this.setState({ selectedRepIdx: idx });
+    onCardDidClick(data) {
+        this.setState({ selectedRep: data });
     }
 }
