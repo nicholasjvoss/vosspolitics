@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import cx from 'classnames';
 
 // ===== components =====
+import Button from '../../components/button/scripts/Button';
 import RepCard from './RepCard';
 import RepDetails from './RepDetails';
 
@@ -10,6 +11,7 @@ export default class RepList extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isCompact: false,
             selectedRep: null,
         }
     }
@@ -17,16 +19,27 @@ export default class RepList extends Component {
     render() {
         const { repListData } = this.props;
         const { offices, officials } = repListData;
-        const { selectedRep } = this.state;
+        const { isCompact, selectedRep } = this.state;
+
+        const isCompactCls = isCompact ? 'mod-compact' : '';
 
         const repDetails = selectedRep ?
-            <RepDetails repData={ selectedRep } /> :
+            <RepDetails
+                repData={ selectedRep } /> :
             <div>Select a representative to see details</div>;
 
 
         return (
             <div className="rep-info-wrapper">
-                <div className={ cx('rep-offices') }>
+                <div className={ cx('rep-offices', isCompactCls) }>
+                    <Button
+                        action={ this.onToggleCompactList.bind(this) }
+                        buttonType={ 4 }
+                        wrapperCls="rep-list-toggle">
+
+                        <span className="p-icon-chevron-right" />
+                    </Button>
+
                     { offices.map(this.renderOffices.bind(this)) }
                 </div>
                 <div className={ cx('rep-detail') }>
@@ -57,13 +70,19 @@ export default class RepList extends Component {
 
         return (
             <div className="rep-offices__office" key={ `rep-${idx}` }>
-                <h3 className="small-caps">{ name }</h3>
                 <ul className="rep-list">{ repCard }</ul>
             </div>
         )
     }
 
     onCardDidClick(data) {
-        this.setState({ selectedRep: data });
+        console.log(data);
+        this.setState({ selectedRep: data, isCompact: true });
+    }
+
+    onToggleCompactList() {
+        const { isCompact } = this.state;
+
+        this.setState({ isCompact: !isCompact });
     }
 }

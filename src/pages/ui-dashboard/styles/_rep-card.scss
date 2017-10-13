@@ -3,7 +3,8 @@
     cursor:pointer;
     display:flex;
     transition:background-color .15s;
-    // width:300px;
+    overflow:hidden;
+    width:400px;
 
     .party {
         margin-top:0;

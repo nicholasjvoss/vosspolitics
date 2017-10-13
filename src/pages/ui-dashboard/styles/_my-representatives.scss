@@ -9,20 +9,31 @@
 
     .rep-info-wrapper {
         display:flex;
+        flex:1 1 auto;
 
         .rep-offices {
             background-color:transparent;
+            display:flex;
             flex:1 1 auto;
+            flex-direction:column;
             margin-left:3rem;
             max-width:400px;
             transition:max-width .5s cubic-bezier(0.23, 1, 0.32, 1),
                 background-color .5s ease;
 
-            .rep-offices__office {
-                > h3 {
-                    margin:0;
-                    padding:2rem;
-                }
+            .rep-list-toggle {
+                align-self:flex-end;
+                color:$dark-gry-3;
+                transform:rotateY(180deg);
+                transition:transform .3s .3s ease;
+            }
+
+            .rep-offices__office > h3 {
+                margin:0;
+                overflow:hidden;
+                padding:2rem;
+                transition:opacity .3s;
+                white-space:nowrap;
             }
 
             .rep-list {
@@ -33,11 +44,28 @@
             }
         }
 
+        .rep-offices.mod-compact {
+            max-width:110px;
+
+            .rep-card__info {
+                opacity:0;
+            }
+
+            .rep-list-toggle {
+                transform:rotateY(0);
+            }
+
+            .rep-offices__office > h3 {
+                opacity:0;
+            }
+        }
+
         .rep-detail {
             display:flex;
             flex:1 1 auto;
+            margin-right:2rem;
             transition:background-color 1s .5s ease;
-            padding:0 2rem;
+            z-index:1;
 
             .rep-detail__inner {
                 background-color:#fff;

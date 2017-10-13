@@ -16,7 +16,7 @@ export default class RepCard extends Component {
         }
 
         return (
-            <div className="rep-card" onClick={ onCardClick }>
+            <div className="rep-card" onClick={ onCardClick.bind('123') }>
                 <div
                     className="rep-card__photo"
                     style={ styles } />

@@ -10,11 +10,11 @@ export default class RepDetails extends Component {
         }
 
         return (
-            <div>
+            <div className="rep-detail-inner__content">
                 <div
-                    className="rep-card__photo"
+                    className="rep-detail__photo"
                     style={ styles } />
-                <div className="rep-card__info">
+                <div className="rep-detail__info">
                     <h3 className="rep-name">{ name }</h3>
                     <span className="party-affiliation">{ party }</span>
                 </div>

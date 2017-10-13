@@ -1,0 +1,9 @@
+.tab-wrapper {
+    .tab-panel {
+        display:none;
+
+        &.mod-active {
+            display:flex;
+        }
+    }
+}

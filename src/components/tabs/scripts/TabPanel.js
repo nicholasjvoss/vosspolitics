@@ -15,10 +15,11 @@ export default class TabPanel extends Component {
     renderTabPanels(tabPanel, idx) {
         const { tabIndex } = this.props;
         const isActive = idx === tabIndex
+        const activeCls = isActive ? 'mod-active' : '';
 
         return (
             <div
-                className="tab-panel"
+                className={ cx('tab-panel', activeCls) }
                 key={`tabPanel-${ idx }`}>
 
                 { isActive && tabPanel }

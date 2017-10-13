@@ -1,0 +1,26 @@
+.page-dashboard .rep-detail {
+    .rep-detail-inner__content {
+        display:flex;
+    }
+
+    .rep-detail__photo {
+        background-color:#eee;
+        background-size:cover;
+        background-position:top center;
+        background-repeat:no-repeat;
+        flex:0 0 auto;
+        height:200px;
+        width:200px;
+    }
+
+    .rep-detail__info {
+        flex:1 1 auto;
+        padding:0 2rem;
+
+        .rep-name {
+            font-size:3rem;
+            font-weight:400;
+            margin:0;
+        }
+    }
+}
