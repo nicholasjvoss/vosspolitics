@@ -62,7 +62,7 @@ export default class Dashboard extends Component {
                     </Tab>
 
                     <Tab wrapperCls="page-dashboard-layout__tab">
-                        <span className="nav-menu-icon p-icon-cog" />Another tab
+                        <span className="nav-menu-icon p-icon-pie-chart" />Stats
                     </Tab>
                 </TabList>
 

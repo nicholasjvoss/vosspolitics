@@ -10,7 +10,9 @@ export default class MyRepresentatives extends Component {
 
         return (
             <div className="my-representatives">
-                <h2>Here are your representatives for <span className="user-address">{ userAddress }</span></h2>
+                <h2 className="my-representatives__title">
+                    Here are your representatives for <span className="user-address">{ userAddress }</span>
+                </h2>
                 <RepList repListData={ repData } />
             </div>
         )

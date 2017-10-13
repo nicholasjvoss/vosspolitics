@@ -1,0 +1,50 @@
+.my-representatives {
+    display:flex;
+    flex-direction:column;
+
+    .my-representatives__title {
+        margin:0 0 2rem 0;
+        padding:2rem 3rem;
+    }
+
+    .rep-info-wrapper {
+        display:flex;
+
+        .rep-offices {
+            background-color:transparent;
+            flex:1 1 auto;
+            margin-left:3rem;
+            max-width:350px;
+            transition:max-width .5s cubic-bezier(0.23, 1, 0.32, 1),
+                background-color .5s ease;
+
+            .rep-offices__office {
+                > h3 {
+                    margin:0;
+                    padding:2rem;
+                }
+            }
+
+            .rep-list {
+                background-color:transparent;
+                list-style-type:none;
+                margin:0;
+                padding:0;
+            }
+        }
+
+        .rep-detail {
+            display:flex;
+            flex:1 1 auto;
+            transition:background-color 1s .5s ease;
+            padding:0 2rem;
+
+            .rep-detail__inner {
+                background-color:#fff;
+                box-shadow:0 1px 1px 0 rgba(0,0,0,.15);
+                flex:1 0 auto;
+                padding:2rem;
+            }
+        }
+    }
+}
