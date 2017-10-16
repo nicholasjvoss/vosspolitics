@@ -35,7 +35,7 @@ export default class RepList extends Component {
                     <Button
                         action={ this.onToggleCompactList.bind(this) }
                         buttonType={ 4 }
-                        wrapperCls="rep-list-toggle">
+                    wrapperCls="rep-list-toggle">
 
                         <span className="p-icon-chevron-right" />
                     </Button>
@@ -46,7 +46,6 @@ export default class RepList extends Component {
                     <div className="rep-detail__inner">{ repDetails }</div>
                 </div>
             </div>
-
         )
     }
 
@@ -59,7 +58,7 @@ export default class RepList extends Component {
             const rep = (officials[index]);
 
             return (
-                <li className="rep-list__item">
+                <li className="rep-list__item" key={`rep-list-item-${index}`}>
                     <RepCard
                         onCardClick={ this.onCardDidClick.bind(this, rep) }
                         repData={ rep }
