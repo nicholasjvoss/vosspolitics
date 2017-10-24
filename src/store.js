@@ -5,13 +5,16 @@ import queryString from 'query-string';
 class PoliticsStore {
     @observable currentTab = 0;
     @observable fetched = false;
-    @observable repData = {};
-    @observable myReps = {};
-    @observable allReps = {};
+
+    @observable repData = {
+        myReps: {},
+    };
     @observable userData = {};
 
+    // ===== Get district info =====
+
     @action
-    fetchDistricInfoFromAddress(address) {
+    fetchDataFromAddress(address) {
         const request = new Request(`https://www.googleapis.com/civicinfo/v2/representatives?address=${ address }&key=${ civicInfoApiKey }`);
         const options = {
             method: 'GET',
@@ -30,7 +33,6 @@ class PoliticsStore {
                 runInAction(() => {
                     this.fetched = true;
                     this.userData = { ...this.userData, ...userDistrictInfo };
-                    // this.repData = data;
                 });
 
                 return userDistrictInfo;
@@ -39,16 +41,14 @@ class PoliticsStore {
             // get my house and senate reps
             .then((userDistrictInfo) => {
                 const { state, district } = userDistrictInfo;
-                this.fetchAllHouse();
-                this.fetchAllSenate();
-                this.fetchMySenate(state);
-                this.fetchMyHouse(state, district);
-
-                console.log(userDistrictInfo);
-            })
-
-            // get all house and senate reps
-            .then(() => {
+                this.fetchCongress('house');
+                this.fetchCongress('senate');
+                this.fetchMyReps(state, district);
+                // this.fetchMySenate(state);
+                // this.fetchMyHouse(state, district);
+                runInAction(() => {
+                    this.fetched = true;
+                });
 
             })
 
@@ -59,60 +59,10 @@ class PoliticsStore {
             })
     }
 
+    // ===== Get all congressional representatives from both chambers =====
 
-
-
-
-
-
-    // @action
-    // async fetchReps(address) {
-    //     try {
-    //         const request = new Request(`https://www.googleapis.com/civicinfo/v2/representatives?address=${ address }&includeOffices=true&levels=country&key=${ civicInfoApiKey }`); //5925+Weddington+Dr
-    //         const options = {
-    //             method: 'GET',
-    //             cache: 'default',
-    //             json: true,
-    //         }
-    //         const response = await fetch(request, options);
-    //         const json = await response.json();
-    //
-    //         // grab the state and district for this address
-    //         const userDistrictInfo = this.getDistrictInfo(json);
-    //         const { state, district } = userDistrictInfo;
-    //
-    //         // get reps from each chamber
-    //         const house = this.getHouse(state, district);
-    //         const senate = this.getSenate(state);
-    //
-    //
-    //         const newRepData = {
-    //             house: house,
-    //             senate: senate,
-    //         };
-    //
-    //         runInAction(() => {
-    //             this.fetched = true;
-    //             this.repData = json;
-    //         });
-    //
-    //         const userState = this.userData.state;
-    //         const userDistrict = this.userData.district;
-    //         // console.log(this.repData);
-    //     }
-    //
-    //     catch(error) {
-    //         runInAction(() => {
-    //             this.fetched = false;
-    //         });
-    //     }
-    // }
-
-
-
-    @action
-    fetchAllHouse() {
-        const request = new Request(`https://api.propublica.org/congress/v1/115/house/members.json`, {
+    @action fetchCongress(chamber) {
+        const request = new Request(`https://api.propublica.org/congress/v1/115/${chamber}/members.json`, {
             headers: new Headers({
                 'X-API-Key': congressApiKey
             }),
@@ -129,7 +79,7 @@ class PoliticsStore {
             .then(response => response.json())
             .then(data => {
                 runInAction(() => {
-                    this.allReps = data.results;
+                    this.repData[chamber] = data.results[0];
                 });
             })
             .catch((error) => {
@@ -137,26 +87,40 @@ class PoliticsStore {
             })
     }
 
+    // ===== Get all user's representatives based on district information =====
+
     @action
-    fetchAllSenate() {
-        const request = new Request(`https://api.propublica.org/congress/v1/115/senate/members.json`, {
-            headers: new Headers({
-                'X-API-Key': congressApiKey
-            }),
-        });
+    fetchMyReps(state, district) {
+        const reqHeaders = {
+            headers: new Headers({ 'X-API-Key': congressApiKey}),
+        };
 
         const options = {
             method: 'GET',
             cache: 'default',
             json: true,
-        }
+        };
 
-        const fetchResponse = fetch(request, options)
-            // convert to JSON
+        const myHouseRepsRequest = new Request(`https://api.propublica.org/congress/v1/members/house/${state}/${district}/current.json`, reqHeaders);
+        const mySenateRepsRequest = new Request(`https://api.propublica.org/congress/v1/members/senate/${state}/current.json`, reqHeaders);
+
+        // fetch and set user senators
+        const mySenateRepsResponse = fetch(mySenateRepsRequest, options)
             .then(response => response.json())
             .then(data => {
                 runInAction(() => {
-                    this.allReps = data.results;
+                    this.repData.myReps.senate = data.results[0];
+                });
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+
+        const myHouseRepsResponse = fetch(mySenateRepsRequest, options)
+            .then(response => response.json())
+            .then(data => {
+                runInAction(() => {
+                    this.repData.myReps.house = data.results[0];
                 });
             })
             .catch((error) => {
@@ -183,7 +147,9 @@ class PoliticsStore {
             .then(response => response.json())
             .then(data => {
                 runInAction(() => {
-                    this.myReps.senate = data.results;
+                    console.log(data.results);
+                    this.repData.derp = data.results;
+                    // this.repData.myReps.senate = data.results[0];
                 });
             })
             .catch((error) => {
@@ -191,7 +157,7 @@ class PoliticsStore {
             })
     }
 
-    async fetchMyHouse(state, district) {
+    fetchMyHouse(state, district) {
         const request = new Request(`https://api.propublica.org/congress/v1/members/house/${state}/${district}/current.json`, {
             headers: new Headers({
                 'X-API-Key': congressApiKey
@@ -210,7 +176,7 @@ class PoliticsStore {
 
             .then(data => {
                 runInAction(() => {
-                    this.myReps.house = data.results;
+                    this.repData.myReps.house = data.results[0];
                 });
             })
 
