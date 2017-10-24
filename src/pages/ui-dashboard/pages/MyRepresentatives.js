@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 // ===== components =====
+import DashboardHeader from '../DashboardHeader';
 import RepList from '../RepList';
 
 export default class MyRepresentatives extends Component {
@@ -10,6 +11,7 @@ export default class MyRepresentatives extends Component {
 
         return (
             <div className="my-representatives">
+                <DashboardHeader/>
                 <h2 className="my-representatives__title">
                     Here are your representatives for <span className="user-address">{ userAddress }</span>
                 </h2>

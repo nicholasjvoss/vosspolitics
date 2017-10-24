@@ -26,8 +26,10 @@ export default class Dashboard extends Component {
 
     render() {
         const { politicsStore } = this.props;
+        // console.log(politicsStore);
         const { fetched } = politicsStore;
         const { hasResults } = this.state;
+        // console.log(this.props.politicsStore);
 
         return (
             <div className="page-dashboard">
@@ -37,13 +39,15 @@ export default class Dashboard extends Component {
     }
 
     componentDidMount() {
-        const { location } = this.props;
+        const { location, politicsStore } = this.props;
         const { search } = location;
         const userLocation = queryString.parse(search);
         const address = encodeURI(userLocation.address);
 
         if(search.length > 0) {
-            this.props.politicsStore.fetchReps(address);
+            politicsStore.fetchDistricInfoFromAddress(address);
+            console.log(politicsStore);
+            // this.props.politicsStore.fetchReps(address);
             this.setState({ hasResults: true });
         } else {
             this.setState({ hasResults: false });
@@ -67,7 +71,9 @@ export default class Dashboard extends Component {
                 </TabList>
 
                 <TabPanel wrapperCls="page-dashboard-layout__main">
-                    <MyRepresentatives repData={ repData } />
+                    {/* <MyRepresentatives repData={ repData } /> */}
+
+                    <div>tab panel content here...</div>
                     <div>tab panel content here...</div>
                 </TabPanel>
             </TabWrapper>
