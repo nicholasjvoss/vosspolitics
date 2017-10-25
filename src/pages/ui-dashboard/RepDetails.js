@@ -1,30 +1,53 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 
+// ===== components =====
+import Button from '../../components/button/scripts/Button';
+
+@observer
 export default class RepDetails extends Component {
-    render() {
-        const { repData } = this.props;
-        const { address, channels, name, party, phones, photoUrl, urls } = repData;
-        // console.log(this.props);
-        const styles = {
-            backgroundImage: `url(${photoUrl})`,
+    constructor(props) {
+        super(props);
+        this.state = {
+            repData: {},
         }
+    }
+
+    componentWillReceiveProps() {
+        const { politicsStore, } = this.props;
+        const { selectedRep } = politicsStore;
+
+        this.setState({ repData: selectedRep });
+    }
+
+    render() {
+        const { politicsStore, repData } = this.props;
+        const { selectedRep } = politicsStore;
+        console.log(this.props.politicsStore.selectedRep);
 
         return (
             <div className="rep-detail-inner__content">
+                <div className="rep-detail__header">
+                    <Button
+                        action={ this.handleBackToRepListDidClick.bind(this) }
+                        buttonType={ 4 }>
+                            <span className="p-icon-chevron-left" />
+                    </Button>
+                </div>
+
                 <div
-                    className="rep-detail__photo"
-                    style={ styles } />
+                    className="rep-detail__photo" />
                 <div className="rep-detail__info">
-                    <h3 className="rep-name">{ name }</h3>
-                    <span className="party-affiliation">{ party }</span>
+                    <h3 className="rep-name">{ this.state.repData.name }</h3>
+                    <span className="party-affiliation">party</span>
                     <ul className="phone-numbers">
-                        { phones.length && phones.map(this.renderPhoneNumbers) }
+                        {/* { phones.length && phones.map(this.renderPhoneNumbers) } */}
                     </ul>
                     <ul className="rep-channels">
-                        { channels.length && channels.map(this.renderChannels) }
+                        {/* { channels.length && channels.map(this.renderChannels) } */}
                     </ul>
                     <ul className="rep-urls">
-                        { urls.length && urls.map(this.renderUrls) }
+                        {/* { urls.length && urls.map(this.renderUrls) } */}
                     </ul>
 
                 </div>
@@ -57,5 +80,9 @@ export default class RepDetails extends Component {
                 key={ `channel-${idx}` }>
                 { url }
             </li>)
+    }
+
+    handleBackToRepListDidClick() {
+        this.props.politicsStore.myRepresentatives.showRepDetail = false;
     }
 }

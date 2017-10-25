@@ -1,10 +1,21 @@
 .my-representatives {
     display:flex;
+    flex:1 1 auto;
     flex-direction:column;
 
     .my-representatives__title {
         margin:0 0 2rem 0;
         padding:2rem 3rem;
+    }
+
+    .rep-content {
+        flex:1 1 auto;
+
+        .panels-two-col__one,
+        .panels-two-col__two {
+            display:flex;
+            flex-direction:column;
+        }
     }
 
     .rep-info-wrapper {

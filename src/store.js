@@ -1,17 +1,28 @@
 import { observable, action, runInAction } from 'mobx';
 import { civicInfoApiKey, congressApiKey } from './secret/APIKeys';
-import queryString from 'query-string';
+// import queryString from 'query-string';
 
 class PoliticsStore {
     @observable currentTab = 0;
     @observable fetched = false;
-
     @observable repData = {
-        myReps: {},
+        myReps: {
+            house: [],
+            senate: [],
+        }
     };
     @observable userData = {};
+    @observable myRepresentatives = {
+        showRepDetail: false,
+    }
+    @observable showRepDetail = false;
 
-    // ===== Get district info =====
+    @action
+    repDetailIsVisible(isToggled) {
+        this.myRepresentatives.howRepDetail = isToggled;
+    }
+
+    // ===== Get district info / get all reps / get just user reps =====
 
     @action
     fetchDataFromAddress(address) {
@@ -22,7 +33,7 @@ class PoliticsStore {
             json: true,
         }
 
-        const fetchResponse = fetch(request, options)
+        fetch(request, options)
             // convert to JSON
             .then(response => response.json())
 
@@ -44,8 +55,7 @@ class PoliticsStore {
                 this.fetchCongress('house');
                 this.fetchCongress('senate');
                 this.fetchMyReps(state, district);
-                // this.fetchMySenate(state);
-                // this.fetchMyHouse(state, district);
+
                 runInAction(() => {
                     this.fetched = true;
                 });
@@ -75,7 +85,6 @@ class PoliticsStore {
         }
 
         const fetchResponse = fetch(request, options)
-            // convert to JSON
             .then(response => response.json())
             .then(data => {
                 runInAction(() => {
@@ -109,18 +118,18 @@ class PoliticsStore {
             .then(response => response.json())
             .then(data => {
                 runInAction(() => {
-                    this.repData.myReps.senate = data.results[0];
+                    this.repData.myReps.senate = data.results;
                 });
             })
             .catch((error) => {
                 console.log(error)
             })
 
-        const myHouseRepsResponse = fetch(mySenateRepsRequest, options)
+        const myHouseRepsResponse = fetch(myHouseRepsRequest, options)
             .then(response => response.json())
             .then(data => {
                 runInAction(() => {
-                    this.repData.myReps.house = data.results[0];
+                    this.repData.myReps.house = data.results;
                 });
             })
             .catch((error) => {
@@ -147,7 +156,6 @@ class PoliticsStore {
             .then(response => response.json())
             .then(data => {
                 runInAction(() => {
-                    console.log(data.results);
                     this.repData.derp = data.results;
                     // this.repData.myReps.senate = data.results[0];
                 });
@@ -186,6 +194,8 @@ class PoliticsStore {
     }
 
     getDistrictInfo(data) {
+        const { normalizedInput } = data;
+
         const divisions = Object.keys(data.divisions);
         const lastDivision = divisions[2]; // this one has state and district info
 
@@ -197,7 +207,7 @@ class PoliticsStore {
             state: newDivisionArr[0],
             district: newDivisionArr[1],
         };
-        const newdata = { ...this.userData, ...divisionIds };
+        const newdata = { ...this.userData, ...divisionIds, ...normalizedInput, };
 
         // dis
         return newdata;

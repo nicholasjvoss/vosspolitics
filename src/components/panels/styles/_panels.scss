@@ -1,0 +1,48 @@
+$translateEasing: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+.panels-two-col {
+    display:flex;
+    overflow-x:hidden;
+
+    .panels-two-col__one,
+    .panels-two-col__two {
+        flex:0 0 auto;
+        transform:translateX(0);
+        width:100%;
+    }
+
+    .panels-two-col__one {
+        opacity:1;
+        transition:
+            opacity .6s .2s,
+            transform .6s $translateEasing;
+    }
+
+    .panels-two-col__two {
+        opacity:0;
+        transition:
+            opacity .4s,
+            transform .6s $translateEasing;
+    }
+}
+
+.panels-two-col.mod-show-secondary {
+    .panels-two-col__one,
+    .panels-two-col__two {
+        transform:translateX(-100%);
+    }
+
+    .panels-two-col__one {
+        opacity:0;
+        transition:
+            opacity .4s,
+            transform .6s $translateEasing;
+    }
+
+    .panels-two-col__two {
+        opacity:1;
+        transition:
+            opacity .6s .2s,
+            transform .6s $translateEasing;
+    }
+}

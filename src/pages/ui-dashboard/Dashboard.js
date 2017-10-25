@@ -28,7 +28,6 @@ export default class Dashboard extends Component {
         const { politicsStore } = this.props;
         const { fetched } = politicsStore;
         const { hasResults } = this.state;
-        // console.log(this.props.politicsStore);
 
         return (
             <div className="page-dashboard">
@@ -56,7 +55,6 @@ export default class Dashboard extends Component {
 
     renderTabContent() {
         const { politicsStore } = this.props;
-        const repData = this.props.politicsStore.repData;
 
         return (
             <TabWrapper wrapperCls="page-dashboard-layout" tabIdx={ 0 }>
@@ -73,7 +71,7 @@ export default class Dashboard extends Component {
                 <TabPanel wrapperCls="page-dashboard-layout__main">
                     {/* <MyRepresentatives repData={ repData } /> */}
 
-                    <div>test</div>
+                    <MyRepresentatives politicsStore={ politicsStore } />
                     <div>tab panel content here...</div>
                 </TabPanel>
             </TabWrapper>
