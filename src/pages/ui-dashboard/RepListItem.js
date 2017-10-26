@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 
 export default class RepListItem extends Component {
     render() {
-        const { politicsStore, repData } = this.props;
+        const { onRepClick, politicsStore, repData, wrapperCls } = this.props;
         const { name, party } = repData;
 
+        const partyCls = {
+            'republican': party === "R",
+            'democratic': party === "D",
+            'independent': party === "I",
+        };
+
+        console.log(repData);
+
         return (
-            <div>{ name }</div>
+            <li
+                className={ cx('rep-list-item', wrapperCls) }
+                onClick={ onRepClick } >
+                <h3 className="rep-name">{ name }</h3>
+                <span className={ cx('party', partyCls) }>{ party }</span>
+            </li>
         )
     }
 }

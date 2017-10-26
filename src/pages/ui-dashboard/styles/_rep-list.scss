@@ -1,3 +1,50 @@
+.my-representatives .rep-list {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+
+    .rep-list-item {
+        cursor:pointer;
+        padding:1rem 2rem;
+        transition:background-color .2s;
+
+        .rep-name {
+            display:inline-block;
+            font-size:1.2rem;
+            text-transform:uppercase;
+        }
+
+        .party {
+            align-items:center;
+            border-radius:50%;
+            color:white;
+            display:inline-flex;
+            font-size:1rem;
+            font-weight:bold;
+            height:15px;
+            justify-content:center;
+            margin:0 5px;
+            width:15px;
+
+            &.republican {
+                background-color:$red-2;
+            }
+
+            &.democratic {
+                background-color:$blue-1;
+            }
+
+            &.independent {
+                background-color:$grn-3;
+            }
+        }
+
+        &:hover {
+            background-color:darken($wht-1, 2%);
+        }
+    }
+}
+
 .rep-card {
     padding:2rem;
     cursor:pointer;

@@ -69,8 +69,6 @@ export default class Dashboard extends Component {
                 </TabList>
 
                 <TabPanel wrapperCls="page-dashboard-layout__main">
-                    {/* <MyRepresentatives repData={ repData } /> */}
-
                     <MyRepresentatives politicsStore={ politicsStore } />
                     <div>tab panel content here...</div>
                 </TabPanel>

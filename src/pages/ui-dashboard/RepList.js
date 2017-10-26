@@ -13,7 +13,7 @@ export default class RepList extends Component {
     render() {
         return (
             <div
-                className="rep-list"
+                className="rep-list-wrapper"
                 onClick={ this.onTextDidClick.bind(this) }>
 
                 { this.renderMyReps() }
@@ -33,7 +33,7 @@ export default class RepList extends Component {
         const { house, senate } = myReps;
 
         return (
-            <ul className="rep-list__my-reps">
+            <ul className="rep-list">
                 { house.map(this.renderRepListItem.bind(this)) }
                 { senate.map(this.renderRepListItem.bind(this)) }
             </ul>
@@ -45,12 +45,11 @@ export default class RepList extends Component {
         const repListItemKey = `rep-${idx}`;
 
         return (
-            <li
+            <RepListItem
                 key={ repListItemKey }
-                onClick={ this.handleRepDidSelect.bind(this, rep) }>
-
-                <RepListItem politicsStore={ politicsStore } repData={ rep } />
-            </li>
+                onRepClick={ this.handleRepDidSelect.bind(this, rep) }
+                politicsStore={ politicsStore }
+                repData={ rep } />
         );
     }
 
