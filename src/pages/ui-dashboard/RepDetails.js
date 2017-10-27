@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import { congressApiKey } from 'secret/APIKeys';
 
 // ===== components =====
 import Button from '../../components/button/scripts/Button';

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 
+// ===== components =====
+import RepCard from './RepCard';
+
 export default class RepListItem extends Component {
     render() {
         const { onRepClick, politicsStore, repData, wrapperCls } = this.props;
@@ -12,14 +15,13 @@ export default class RepListItem extends Component {
             'independent': party === "I",
         };
 
-        console.log(repData);
-
         return (
             <li
                 className={ cx('rep-list-item', wrapperCls) }
                 onClick={ onRepClick } >
-                <h3 className="rep-name">{ name }</h3>
-                <span className={ cx('party', partyCls) }>{ party }</span>
+                <RepCard repData={ repData } />
+                {/* <h3 className="rep-name">{ name }</h3>
+                <span className={ cx('party', partyCls) }>{ party }</span> */}
             </li>
         )
     }

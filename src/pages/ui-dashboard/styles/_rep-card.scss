@@ -1,0 +1,56 @@
+.rep-card {
+    background-color:#fff;
+    box-shadow:0 1px 1px 0 rgba(0,0,0,.15);
+    padding:2rem;
+    cursor:pointer;
+    display:flex;
+    transition:background-color .15s;
+    overflow:hidden;
+
+    .party {
+        margin-top:0;
+    }
+
+    .rep-card__photo {
+        background-position:center;
+        background-repeat:no-repeat;
+        background-size:cover;
+        border-radius:50%;
+        flex:0 0 auto;
+        height:70px;
+        margin-right:1rem;
+        width:70px;
+    }
+
+    .rep-card__info {
+        display:flex;
+        flex-direction:column;
+        flex:1 1 auto;
+        margin:auto 0 auto 2rem;
+
+        .rep-name {
+            margin:0;
+        }
+
+        .office-name {
+            font-size:1.2rem;
+        }
+
+        .party-affiliation {
+            font-size:1.2rem;
+        }
+    }
+
+    .more-arrow {
+        align-items:center;
+        color:darken($wht-1, 5%);
+        display:flex;
+        font-size:2.2rem;
+        height:40px;
+        margin:auto 0;
+        padding-left:3rem;
+        transform: translateX(-20px);
+        transition:color .5s ease, transform .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        width:40px;
+    }
+}

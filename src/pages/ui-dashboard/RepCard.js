@@ -8,24 +8,23 @@ export default class RepCard extends Component {
     }
 
     render() {
-        const { office, onCardClick, repData } = this.props;
-        const { address, channels, name, party, phones, photoUrl, urls } = repData;
+        const { repData } = this.props;
+        const { name, id } = repData;
 
+        const repImageUrl = `https://theunitedstates.io/images/congress/225x275/${ id }.jpg`;
         const styles = {
-            backgroundImage: `url(${photoUrl})`,
+            backgroundImage: `url(${repImageUrl})`,
+            backgroundColor: 'gold',
         }
 
+        console.log(repData);
+
         return (
-            <div className="rep-card" onClick={ onCardClick.bind('123') }>
+            <div className="rep-card">
                 <div
                     className="rep-card__photo"
                     style={ styles } />
-                <div className="rep-card__info">
-                    <h3 className="rep-name">{ name }</h3>
-                    <span className="office-name">{office.name}</span>
-                    <span className="party-affiliation">{ party }</span>
-                </div>
-                <span className="more-arrow p-icon-chevron-right"/>
+                <h3>{ name }</h3>
             </div>
         )
     }
