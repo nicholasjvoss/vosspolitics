@@ -3,6 +3,7 @@ import { civicInfoApiKey, congressApiKey } from './secret/APIKeys';
 // import queryString from 'query-string';
 
 class PoliticsStore {
+    @observable navIsVisible = false;
     @observable currentTab = 0;
     @observable fetched = false;
     @observable repData = {

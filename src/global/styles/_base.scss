@@ -26,6 +26,6 @@ button, img, input {
 
 // ===== Responsive Breakpoints =====
 
-$phone: "screen and (min-width:0) and (max-width:649px)";
-$tablet: "screen and (min-width:650px) and (max-width:959px)";
+$phone: "screen and (min-width:0)";
+$tablet: "screen and (min-width:650px)";
 $desktop: "screen and (min-width:960px)";

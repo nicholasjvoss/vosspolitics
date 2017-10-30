@@ -1,3 +1,5 @@
+$navWidth:250px;
+
 .page-dashboard {
     display:flex;
     height:100%;
@@ -9,19 +11,33 @@
     .page-dashboard-layout {
         display:flex;
         flex:1 1 auto;
+        width:100%;
 
         .page-dashboard-layout__nav {
             background-color:$dark-gry-3;
             flex:0 0 auto;
             margin:0;
-            width:250px;
+            overflow:hidden;
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            z-index:1;
         }
 
         .page-dashboard-layout__main {
+            background-color:$wht-1;
             display:flex;
             flex-direction:column;
             overflow-y:auto;
+            transform:translateX(0);
+            transition:transform .5s cubic-bezier(0.19, 1, 0.22, 1);;
             width:100%;
+            z-index:2;
+
+            &.mod-nav-visible {
+                transform:translateX($navWidth);
+            }
 
             .tab-panel {
                 flex-direction:column;

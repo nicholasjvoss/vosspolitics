@@ -1,17 +1,32 @@
 .my-representatives .rep-list {
     display:flex;
+    flex-wrap:wrap;
     list-style-type:none;
     margin:0;
     padding:0;
 
     .rep-list-item {
         cursor:pointer;
-        flex:1 1 auto;
+        flex:1 1 100%;
         padding:1rem;
         transition:background-color .2s;
 
         &:hover {
-            background-color:darken($wht-1, 2%);
+            .rep-card {
+                box-shadow:
+                    0 2px 2px 0 rgba(0,0,0,.16),
+                    0 0 0 1px rgba(0,0,0,.08);
+            }
+        }
+
+        @media #{$tablet} {
+            flex:1 1 50%;
+            max-width:50%;
+        }
+
+        @media #{$tablet} {
+            flex:1 1 33.32%;
+            max-width:33.32%;
         }
     }
 }

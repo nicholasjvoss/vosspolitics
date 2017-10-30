@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 import cx from 'classnames';
 
+@observer
 export default class TabList extends Component {
     render() {
-        const { children, wrapperCls } = this.props;
+        const { children, politicsStore, wrapperCls } = this.props;
 
         return (
             <div className={ cx('tab-list', wrapperCls) }>

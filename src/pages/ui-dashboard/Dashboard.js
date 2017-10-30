@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import queryString from 'query-string';
+import cx from 'classnames';
 
 // ===== components =====
 import DashboardHeader from './DashboardHeader';
@@ -55,6 +56,8 @@ export default class Dashboard extends Component {
 
     renderTabContent() {
         const { politicsStore } = this.props;
+        const { navIsVisible } = politicsStore;
+        const navIsVisibleCls = navIsVisible ? 'mod-nav-visible' : '';
 
         return (
             <TabWrapper wrapperCls="page-dashboard-layout" tabIdx={ 0 }>
@@ -68,7 +71,10 @@ export default class Dashboard extends Component {
                     </Tab>
                 </TabList>
 
-                <TabPanel wrapperCls="page-dashboard-layout__main">
+                <TabPanel
+                    navIsVisible={ navIsVisible }
+                    wrapperCls={ cx('page-dashboard-layout__main', navIsVisibleCls) }
+                >
                     <MyRepresentatives politicsStore={ politicsStore } />
                     <div>tab panel content here...</div>
                 </TabPanel>

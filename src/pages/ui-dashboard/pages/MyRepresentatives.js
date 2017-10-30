@@ -17,7 +17,7 @@ export default class MyRepresentatives extends Component {
 
         return (
             <div className="my-representatives">
-                <DashboardHeader>My Representatives</DashboardHeader>
+                <DashboardHeader onNaviconClick={ this.handleNavToggleDidClick.bind(this) }>My Representatives</DashboardHeader>
 
                 {/* <h2 className="my-representatives__title">
                     Here are your representatives for <span className="user-address">{ userAddress }</span>
@@ -25,17 +25,21 @@ export default class MyRepresentatives extends Component {
 
                 <PanelsTwoCol
                     showSecondary={ showRepDetail }
-                    wrapperCls="rep-content">
-
+                    wrapperCls="rep-content"
+                >
                     <RepList
                         politicsStore={ politicsStore }
-                        wrapperCls="rep-list" />
-
+                        wrapperCls="rep-list"
+                    />
                     <RepDetails politicsStore={ politicsStore } />
                 </PanelsTwoCol>
             </div>
         )
     }
 
-    
+    handleNavToggleDidClick() {
+        const { politicsStore } = this.props;
+        const { navIsVisible } = politicsStore;
+        politicsStore.navIsVisible = !navIsVisible;
+    }
 }
