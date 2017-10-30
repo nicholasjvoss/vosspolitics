@@ -23,6 +23,10 @@ $navWidth:250px;
             bottom:0;
             left:0;
             z-index:1;
+
+            @media #{$desktop} {
+                position:relative;
+            }
         }
 
         .page-dashboard-layout__main {
@@ -60,6 +64,10 @@ $navWidth:250px;
 
                     &:hover {
                         color:$grn-1;
+                    }
+
+                    @media #{$desktop} {
+                        display:none;
                     }
                 }
             }
