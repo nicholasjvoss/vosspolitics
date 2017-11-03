@@ -10,8 +10,9 @@ class PoliticsStore {
         myReps: {
             house: [],
             senate: [],
-        }
+        },
     };
+    @observable selectedRep = {};
     @observable userData = {};
     @observable myRepresentatives = {
         showRepDetail: false,
@@ -212,6 +213,32 @@ class PoliticsStore {
 
         // dis
         return newdata;
+    }
+
+    @action getRepDetail(repId) {
+        const request = new Request(`https://api.propublica.org/congress/v1/members/${ repId }.json`, {
+            headers: new Headers({
+                'X-API-Key': congressApiKey
+            }),
+        });
+
+        const options = {
+            method: 'GET',
+            cache: 'default',
+            json: true,
+        }
+
+        const fetchResponse = fetch(request, options)
+            .then(response => response.json())
+            .then(data => {
+                // console.log('selectedRep:', data.results[0]);
+                runInAction(() => {
+                    this.selectedRep = data.results[0];
+                });
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 }
 

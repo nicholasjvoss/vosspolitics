@@ -20,7 +20,7 @@ export default class PrimaryHeader extends Component {
                     wrapperCls="nav-toggle p-icon-navicon"
                 />
 
-                <h1>{ children ? children : 'Dashboard' }</h1>
+                <h1 className="dashboard-header__title">{ children ? children : 'Dashboard' }</h1>
             </header>
         )
     }

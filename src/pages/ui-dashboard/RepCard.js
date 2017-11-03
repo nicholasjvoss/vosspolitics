@@ -14,10 +14,9 @@ export default class RepCard extends Component {
         const repImageUrl = `https://theunitedstates.io/images/congress/225x275/${ id }.jpg`;
         const styles = {
             backgroundImage: `url(${repImageUrl})`,
-            backgroundColor: 'gold',
         }
 
-        console.log(repData);
+        // console.log(repData);
 
         return (
             <div className="rep-card">

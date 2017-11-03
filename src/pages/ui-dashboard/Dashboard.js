@@ -50,8 +50,6 @@ export default class Dashboard extends Component {
         } else {
             this.setState({ hasResults: false });
         }
-
-        console.log(politicsStore);
     }
 
     renderTabContent() {

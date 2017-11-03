@@ -9,20 +9,29 @@ export default class RepDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            repData: {},
+            repId: null,
+            selectedRepData: {},
         }
     }
 
     componentWillReceiveProps() {
         const { politicsStore, } = this.props;
-        const { selectedRep } = politicsStore;
+        const { selectedRepId, selectedRep, repData } = politicsStore;
 
-        this.setState({ repData: selectedRep });
+        // Get full rep detail by id
+        politicsStore.getRepDetail(selectedRepId);
     }
 
     render() {
         const { politicsStore, repData } = this.props;
         const { selectedRep } = politicsStore;
+
+        console.log(selectedRep);
+
+        const fullName = `${ selectedRep.first_name } ${ selectedRep.last_name }`;
+        const state = selectedRep.roles;
+        console.log(state);
+        // const stateParty = `${ selectedRep.current_party } - ${ selectedRep.roles[0] }`;
 
         return (
             <div className="rep-detail">
@@ -36,10 +45,11 @@ export default class RepDetails extends Component {
                 </div>
 
                 <div className="rep-detail__content">
+                    { !selectedRep && <div>no selected rep</div> }
                     <div className="rep-detail__photo" />
                     <div className="rep-detail__info">
-                        <h3 className="rep-name">{ this.state.repData.name }</h3>
-                        <span className="party-affiliation">party</span>
+                        <h3 className="rep-name">{ fullName }</h3>
+                        <span className="party-affiliation"></span>
                         <ul className="phone-numbers">
                             {/* { phones.length && phones.map(this.renderPhoneNumbers) } */}
                         </ul>
